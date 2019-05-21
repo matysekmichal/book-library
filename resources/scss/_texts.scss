@@ -1,5 +1,73 @@
+@import "variables";
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Titillium+Web:300,400,700&display=swap&subset=latin-ext');
 
-.font-second {
+.h0 {font-size: $h0;}
+.h1 {font-size: $h1;}
+.h2 {font-size: $h2;}
+.h3 {font-size: $h3;}
+.h4 {font-size: $h4;}
+.h5 {font-size: $h5;}
+.h6 {font-size: $h6;}
+.h7 {font-size: $h7;}
+
+a {
+  color: #0040e0;
+  text-decoration: none;
+  transition: color 300ms;
+}
+
+a:hover {
+  color: #0036be;
+}
+
+.font-special {
   font-family: 'Merriweather', serif;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font-weight-light {
+  font-weight: $font-weight-light;
+}
+
+.font-weight-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-weight-bolder {
+  font-weight: $font-weight-bolder;
+}
+
+// List
+
+ol.rules {
+  text-align: justify;
+  margin: 10px 0 30px 0
+}
+
+ol.rules li {
+  text-align: justify;
+  margin: 20px 0
+}
+
+ol.rules ul {
+  list-style-type: lower-latin
 }

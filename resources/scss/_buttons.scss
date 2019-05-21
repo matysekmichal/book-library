@@ -1,0 +1,110 @@
+@import "variables";
+
+.btn {
+  position: relative;
+  padding: 6px 25px;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  text-decoration: none;
+  font-size: $h8;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  transition: color, background-color 300ms;
+
+  // Buttons sizes
+
+  &.btn-lg {
+    font-size: $h5;
+    padding: 10px 30px;
+  }
+
+  &.btn-sm {
+    font-size: $h9;
+    padding: 5px 15px;
+  }
+
+  &.btn-xs {
+    font-size: $h10;
+    padding: 5px 15px;
+  }
+
+  // Button primary
+
+  &.btn-primary {
+    color: #ffffff;
+    background-color: $primary;
+    border: 2px solid $primary;
+
+    &:hover {
+      color: $primary;
+      background-color: #ffffff;
+    }
+
+    &:focus::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      bottom: -6px;
+      right: -6px;
+      border-radius: 50px;
+      background-color: $primary;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+
+  // Button secondary
+
+  &.btn-secondary {
+    color: #ffffff;
+    background-color: $secondary;
+    border: 2px solid $secondary;
+
+    &:hover {
+      color: $secondary;
+      background-color: #ffffff;
+    }
+
+    &:focus::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      bottom: -6px;
+      right: -6px;
+      border-radius: 50px;
+      background-color: $secondary;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+
+  // Button gray
+
+  &.btn-gray {
+    color: $basic;
+    background-color: $gray-30;
+    border: 2px solid $gray-30;
+
+    &:hover {
+      background-color: $gray-10;
+      border-color: $basic;
+    }
+
+    &:focus::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      bottom: -6px;
+      right: -6px;
+      border-radius: 50px;
+      background-color: $basic;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+}

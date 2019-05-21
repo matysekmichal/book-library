@@ -1,0 +1,133 @@
+@import "variables";
+
+.navbar {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $gray-20;
+
+  .logo {
+    font-family: "Merriweather", serif;
+    font-size: $h8;
+    text-transform: uppercase;
+    font-weight: $font-weight-bolder;
+
+    a {
+      color: $basic;
+      -webkit-transition: color $animation-normal;
+      -moz-transition: color $animation-normal;
+      -ms-transition: color $animation-normal;
+      -o-transition: color $animation-normal;
+      transition: color $animation-normal;
+
+      &:hover {
+        color: $primary;
+      }
+
+      * {
+        margin: 0;
+      }
+    }
+  }
+
+  .container-wide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+
+nav.navigation-vertical {
+  display: flex;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      margin: 0 20px;
+
+      a {
+        color: #000000;
+        font-size: 0.9rem;
+        font-weight: bold;
+        border-bottom: 2px;
+        text-decoration: none;
+        letter-spacing: 1px;
+        padding: 10px 0;
+        transition: color 300ms;
+
+        &:hover {
+          color: #0040e0;
+        }
+      }
+
+      &.active a {
+        color: #0040e0;
+      }
+
+      &.active a::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: -10px;
+        width: 100%;
+        height: 4px;
+        background-color: #0040e0;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+nav.navigation-horizontal {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      margin: 0 20px;
+
+      a {
+        color: #000000;
+        font-size: 0.9rem;
+        font-weight: bold;
+        border-bottom: 2px;
+        text-decoration: none;
+        letter-spacing: 1px;
+        padding: 10px 0;
+        transition: color 300ms;
+
+        &:hover {
+          color: #0040e0;
+        }
+      }
+
+      &.active a {
+        color: #0040e0;
+      }
+
+      &.active a::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: -10px;
+        width: 100%;
+        height: 4px;
+        background-color: #0040e0;
+        border-radius: 50px;
+      }
+    }
+  }
+}
