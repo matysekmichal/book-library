@@ -1,12 +1,13 @@
 @import "variables";
 
-.py-10 {
-  padding: 100px 0;
-}
+// Y
 
-.py-5 {
-  padding: 50px 0;
-}
+.my-5 { margin-top: 50px; margin-bottom: 50px; }
+.my-4 { margin-top: 40px; margin-bottom: 40px; }
+.my-3 { margin-top: 30px; margin-bottom: 30px; }
+.my-2 { margin-top: 20px; margin-bottom: 20px; }
+.my-1 { margin-top: 10px; margin-bottom: 10px; }
+.my-0 { margin-top: 0; margin-bottom: 0; }
 
 .mb-5 { margin-bottom: 50px; }
 .mb-4 { margin-bottom: 40px; }
@@ -21,6 +22,15 @@
 .mt-2 { margin-top: 20px; }
 .mt-1 { margin-top: 10px; }
 .mt-0 { margin-top: 0; }
+
+// X
+
+.mx-5 { margin-left: 50px; margin-right: 50px; }
+.mx-4 { margin-left: 40px; margin-right: 40px; }
+.mx-3 { margin-left: 30px; margin-right: 30px; }
+.mx-2 { margin-left: 20px; margin-right: 20px; }
+.mx-1 { margin-left: 10px; margin-right: 10px; }
+.mx-0 { margin-left: 0; margin-right: 0; }
 
 .mr-5 { margin-right: 50px; }
 .mr-4 { margin-right: 40px; }

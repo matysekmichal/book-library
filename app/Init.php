@@ -2,7 +2,10 @@
 
 session_start();
 
-if (DEBUG_MODE) {
+include "Variables.php";
+include "Helpers.php";
+
+if (App::DEBUG_MODE) {
     error_reporting(-1);
     ini_set('display_errors', 'On');
 }

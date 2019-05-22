@@ -1,8 +1,14 @@
 <?php
 
+$opt = array(
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+);
+
+$dsn = 'mysql:dbname='. App::DB_NAME .';host='. App::DB_HOST .';charset=utf8';
+
 try {
-    $db = new PDO('mysql:host='. DB_HOST .';dbname='. DB_NAME, DB_USER, DB_PASSWORD);
+    $dbh = new PDO($dsn, App::DB_USER, App::DB_PASSWORD, $opt);
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage() . "<br/>";
-    die();
+    echo 'Connection failed: ' . $e->getMessage();
 }

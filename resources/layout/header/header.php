@@ -1,3 +1,6 @@
+<?php
+    include 'app/Genres.php';
+?>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -26,21 +29,19 @@
 </header>
 
 <div class="container page-content-holder">
-    <aside>
-        <h2 class="h5 mt-0">Kategorie</h2>
-        <nav class="navigation-vertical">
-            <ul>
-                <li><a href="">Strona główna</a></li>
-                <li><a href="">Najchętniej kupowane</a></li>
-                <li><a href="">Logowanie</a></li>
-                <li><a href="">Logowanie</a></li>
-            </ul>
-            <hr>
-        </nav>
-    </aside>
-    <main class="content-holder">
-        <div class="content">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-    </main>
-</div>
+<aside>
+    <h2 class="h5 my-0">Kategorie</h2>
+    <hr class="mt-1">
+    <nav class="navigation-vertical">
+        <ul>
+            <?php
+                foreach (genres($dbh) as $key => $genre) {
+                    echo '<li><a href="'. slugify($genre['name']) .'">'. $genre['name'] .'</a></li>';
+                }
+            ?>
+        </ul>
+    </nav>
+</aside>
+
+<main class="content-holder">
+<div class="content">
