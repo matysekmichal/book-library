@@ -1,3 +1,7 @@
+body {
+  font-size: 16px;
+}
+
 @import "variables";
 @import "reset";
 @import "spacings";
@@ -11,7 +15,6 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
   margin: 0;
   color: #0c0b18;
   background-color: $gray-10;
@@ -95,6 +98,40 @@ aside {
   }
 }
 
+// Badge
+
+.badge {
+  position: relative;
+  display: inline-block;
+  color: $white;
+  font-size: $h9;
+  font-weight: $font-weight-bold;
+  margin-left: 8px;
+
+  &.empty {
+    &::before {
+      background: $basic;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: $primary;
+    border-radius: 18px;
+    z-index: -1;
+  }
+}
+
 /* Presentation */
 
 //.presentation {
@@ -163,9 +200,6 @@ aside {
 /* Footer */
 
 footer {
-  text-align: center;
-  padding: 15px 0;
-  background: #000000;
 }
 
 /* Media */

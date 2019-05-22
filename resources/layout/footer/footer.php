@@ -1,14 +1,12 @@
 </div>
 </div>
+<footer>
+    <p class="text-gray-50 text-center">
+        © 2019 Michał Matysek. All rights reserved.
+    </p>
+</footer>
 </main>
 </div>
-<footer>
-    <div class="container">
-        <div class="content">
-            asd
-        </div>
-    </div>
-</footer>
 <?= $footer_scripts ?>
 </body>
 </html>

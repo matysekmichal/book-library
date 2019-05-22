@@ -60,7 +60,28 @@ nav.navigation-vertical {
         transition: color 300ms;
 
         &:hover {
-          color: #0040e0;
+          color: $primary;
+        }
+
+        i {
+          vertical-align: text-top;
+          font-size: $h5;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  &.nav-primary {
+    ul {
+      li {
+        a {
+          color: $basic;
+          font-weight: $font-weight-bold;
+
+          &:hover {
+            color: $primary;
+          }
         }
       }
     }

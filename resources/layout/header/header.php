@@ -30,7 +30,17 @@
 
 <div class="container page-content-holder">
 <aside>
-    <h2 class="h5 my-0">Kategorie</h2>
+    <h2 class="h5 my-0">Twoj konto</h2>
+    <hr class="mt-1">
+    <nav class="navigation-vertical nav-primary">
+        <ul>
+            <li><a href=""><i class="material-icons">person</i> Dane konta</a></li>
+            <li><a href=""><i class="material-icons">archive</i> Schowek <span class="badge">22</span></a></li>
+            <li><a href=""><i class="material-icons">first_page</i> Wyloguj się</a></li>
+        </ul>
+    </nav>
+
+    <h2 class="h5 mt-3 mb-0">Kategorie</h2>
     <hr class="mt-1">
     <nav class="navigation-vertical">
         <ul>
