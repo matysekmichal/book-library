@@ -39,6 +39,32 @@ body {
   max-width: 100%;
 }
 
+// Holders
+
+.page-content-holder {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content-holder {
+  background: $white;
+  border-radius: $radius-big;
+  border: 1px solid $gray-20;
+}
+
+.content {
+  padding: 20px 10px;
+}
+
+aside {
+
+}
+
 /* Presentation */
 
 //.presentation {

@@ -145,6 +145,10 @@
   box-shadow: 0 0 20px #00000010;
 }
 
+.shadow-none {
+  box-shadow: none;
+}
+
 .h0 {
   font-size: 2.9rem;
 }
@@ -185,6 +189,12 @@ a {
 
 a:hover {
   color: #0036be;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #e1e1e1;
+  height: 0;
 }
 
 .font-special {
@@ -242,6 +252,14 @@ ol.rules ul {
   background-color: #ffffff;
   border-bottom: 1px solid #ebebeb;
 }
+.navbar .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 .navbar .logo {
   font-family: "Merriweather", serif;
   font-size: 0.8rem;
@@ -262,54 +280,29 @@ ol.rules ul {
 .navbar .logo a * {
   margin: 0;
 }
-.navbar .container-wide {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 
-nav.navigation-vertical {
-  display: flex;
-}
 nav.navigation-vertical ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 nav.navigation-vertical ul li {
   position: relative;
-  margin: 0 20px;
+  margin: 3px 10px;
 }
 nav.navigation-vertical ul li a {
-  color: #000000;
+  color: #a5a5a5;
   font-size: 0.9rem;
-  font-weight: bold;
+  font-weight: 400;
   border-bottom: 2px;
   text-decoration: none;
   letter-spacing: 1px;
-  padding: 10px 0;
   transition: color 300ms;
 }
 nav.navigation-vertical ul li a:hover {
   color: #0040e0;
-}
-nav.navigation-vertical ul li.active a {
-  color: #0040e0;
-}
-nav.navigation-vertical ul li.active a::after {
-  content: "";
-  position: absolute;
-  left: 0px;
-  bottom: -10px;
-  width: 100%;
-  height: 4px;
-  background-color: #0040e0;
-  border-radius: 50px;
 }
 
 nav.navigation-horizontal ul {
@@ -523,6 +516,26 @@ body {
 
 .container-wide {
   max-width: 100%;
+}
+
+.page-content-holder {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content-holder {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ebebeb;
+}
+
+.content {
+  padding: 20px 10px;
 }
 
 /* Presentation */

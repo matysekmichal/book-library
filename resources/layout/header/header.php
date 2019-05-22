@@ -14,13 +14,33 @@
 <body>
 <header>
     <div class="navbar">
-        <div class="container-wide">
+        <div class="container">
             <div class="logo">
                 <a href="index.html">
                     <h1>Book Library</h1>
                 </a>
             </div>
-            <a href="" class="btn btn-primary">Logowanie</a>
+            <a href="" class="btn btn-sm btn-primary">Logowanie</a>
         </div>
     </div>
 </header>
+
+<div class="container page-content-holder">
+    <aside>
+        <h2 class="h5 mt-0">Kategorie</h2>
+        <nav class="navigation-vertical">
+            <ul>
+                <li><a href="">Strona główna</a></li>
+                <li><a href="">Najchętniej kupowane</a></li>
+                <li><a href="">Logowanie</a></li>
+                <li><a href="">Logowanie</a></li>
+            </ul>
+            <hr>
+        </nav>
+    </aside>
+    <main class="content-holder">
+        <div class="content">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </main>
+</div>
