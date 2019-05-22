@@ -1,7 +1,7 @@
 <?php
 
 include 'app/Init.php';
-$pageTitle = 'asd';
+$pageTitle = 'Book Library - wypożyczalnia książek';
 
 include 'resources/layout/header/header.php';
 ?>

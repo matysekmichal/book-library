@@ -19,7 +19,7 @@
     <div class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="/">
                     <h1>Book Library</h1>
                 </a>
             </div>
@@ -43,5 +43,21 @@
     </nav>
 </aside>
 
-<main class="content-holder">
-<div class="content">
+
+
+<main>
+    <div class="content-holder">
+        <form action="">
+            <div class="finder">
+                <div class="form-group">
+                    <i class="material-icons">search</i>
+                    <input type="text" placeholder="Wyszukaj książkę lub autora ...">
+                </div>
+                <button class="btn btn-dark btn-square">Szukaj</button>
+            </div>
+        </form>
+        <div class="content">
+            <div class="segment">
+                <h2 class="my-0">Najnowsze książki</h2>
+                <hr>
+            </div>

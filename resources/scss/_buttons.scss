@@ -82,6 +82,31 @@
     }
   }
 
+  // Button dark
+
+  &.btn-dark {
+    color: $gray-10;
+    background-color: $basic;
+    border: 0;
+
+    &:hover {
+      background-color: lighten($basic, 20%);
+    }
+
+    &:focus::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      bottom: -6px;
+      right: -6px;
+      border-radius: 50px;
+      background-color: $basic;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+
   // Button gray
 
   &.btn-gray {
@@ -107,4 +132,10 @@
       z-index: -1;
     }
   }
+}
+
+.btn-square {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
