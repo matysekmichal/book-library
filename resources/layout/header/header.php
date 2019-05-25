@@ -23,7 +23,10 @@
                     <h1>Book Library</h1>
                 </a>
             </div>
-            <a href="/login" class="btn btn-sm btn-primary">Logowanie</a>
+            <div>
+                <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
+                <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
+            </div>
         </div>
     </div>
 </header>
