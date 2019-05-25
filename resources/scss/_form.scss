@@ -37,44 +37,44 @@ input {
   i + input {
     padding-left: 40px;
   }
+
+  input,
+  textarea {
+    width: 100%;
+    margin: 0;
+  }
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  margin: 0;
-}
-
-input[type=text].form-control,
-input[type=email].form-control,
-input[type=phone].form-control,
-textarea.form-control {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  background: #fff;
-  border: 1px solid #d4d4d4;
-  border-radius: 5px;
-  padding: 10px 15px;
-}
-
-textarea.form-control {
-  max-width: 100%;
-  min-width: 100%;
-}
-
-input[type=text]:focus.form-control,
-textarea:focus.form-control {
-  border-color: #0040e0;
-  box-shadow: 0 0 10px #0a41cd26;
-  transition: box-shadow, border-color 1000ms;
-}
+//input[type=text].form-control,
+//input[type=email].form-control,
+//input[type=phone].form-control,
+//textarea.form-control {
+//  font-family: 'Lato', sans-serif;
+//  font-size: 0.9rem;
+//  background: #fff;
+//  border: 1px solid #d4d4d4;
+//  border-radius: 5px;
+//  padding: 10px 15px;
+//}
+//
+//textarea.form-control {
+//  max-width: 100%;
+//  min-width: 100%;
+//}
+//
+//input[type=text]:focus.form-control,
+//textarea:focus.form-control {
+//  border-color: #0040e0;
+//  box-shadow: 0 0 10px #0a41cd26;
+//  transition: box-shadow, border-color 1000ms;
+//}
 
 .from-checkbox {
   display: flex;
   text-align: left;
-}
 
-.from-checkbox input {
-  margin: 5px 10px;
-  width: auto;
+  input {
+    margin: 3px 10px;
+    width: auto;
+  }
 }
