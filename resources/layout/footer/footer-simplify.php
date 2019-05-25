@@ -10,5 +10,6 @@
 echo $taste;
 echo $footer_scripts;
 ?>
+<script src="/resources/js/app.min.js"></script>
 </body>
 </html>

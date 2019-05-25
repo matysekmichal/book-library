@@ -8,10 +8,10 @@ include 'resources/layout/header/header-simplify.php';
 
 <div class="box margins">
     <h1 class="h3 mt-0 mb-3 text-center">Logowanie</h1>
-    <form action="">
+    <form action="/app/Auth/Login.php" method="post">
         <div class="form-group">
-            <i class="material-icons">person</i>
-            <input type="text" name="login" placeholder="Login" autofocus required>
+            <i class="material-icons">email</i>
+            <input type="text" name="email" placeholder="Email" autofocus required>
         </div>
 
         <div class="form-group">

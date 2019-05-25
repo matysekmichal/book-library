@@ -1,25 +1,26 @@
 <?php
 
-include '../Variables.php';
-include '../DatabaseConnection.php';
-include '../Helpers.php';
+include '../Init.php';
 
-if (isset($_POST['login'], $_POST['email'], $_POST['password'])) {
-    $login = $_POST['login'];
+if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
 
-    $query = 'INSERT INTO borrowers (login, email, password) VALUES (:login, :email, :password)';
+    $query = 'INSERT INTO borrowers (email, password) VALUES (:email, :password)';
     $result = $dbh->prepare($query);
 
-    $result->execute([
-        'login' => $login,
-        'email' => $email,
-        'password' => $password
-    ]);
+    try {
+        $result->execute([
+            'email' => $email,
+            'password' => $password
+        ]);
+    } catch (Exception $e) {
+        flashError('Przepraszamy. Nie mogliśmy utworzyć konta.', 'register');
+        die();
+    }
 
     if ($result) {
+        $_SESSION['auth'] = baseEncrypt($email);
         flashSuccess('Utworzono konto');
-        header('Location: '. App::APP_URL);
     }
 }

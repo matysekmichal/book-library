@@ -24,8 +24,12 @@
                 </a>
             </div>
             <div>
+            <?php if (empty($_SESSION['auth'])) { ?>
                 <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
                 <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
+            <?php } else { ?>
+                <a href="/logout" class="h7 link-gray mr-2">Wyloguj się</a>
+            <?php } ?>
             </div>
         </div>
     </div>

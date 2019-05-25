@@ -10,7 +10,8 @@ if (App::APP_DEBUG) {
 }
 
 include "Helpers.php";
-include 'app/DatabaseConnection.php';
-include 'app/Dialogs/Taste.php';
+include 'Crypt.php';
+include 'DatabaseConnection.php';
+include 'Dialogs/Taste.php';
 
 $footer_scripts = '';

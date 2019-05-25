@@ -10,11 +10,6 @@ include 'resources/layout/header/header-simplify.php';
     <h1 class="h3 mt-0 mb-3 text-center">Rejestracja</h1>
     <form action="app/Auth/Register.php" method="post">
         <div class="form-group">
-            <i class="material-icons">person</i>
-            <input type="text" name="login" placeholder="Login" autofocus required>
-        </div>
-
-        <div class="form-group">
             <i class="material-icons">email</i>
             <input type="email" name="email" placeholder="Email" required>
         </div>
@@ -30,8 +25,12 @@ include 'resources/layout/header/header-simplify.php';
         </div>
 
         <div class="form-group text-center">
-            <button type="submit" name="register" class="btn btn-primary">Załóż konto</button>
+            <button type="submit" class="btn btn-primary">Załóż konto</button>
         </div>
+
+        <p class="text-center h7 text-gray-70">
+            Mam już konto. <a href="/login" class="link-gray text-decoration">Zaloguj się</a>.
+        </p>
     </form>
 </div>
 
