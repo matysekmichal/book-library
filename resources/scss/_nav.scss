@@ -39,6 +39,19 @@
   }
 }
 
+header.simple {
+  .navbar {
+    background-color: transparent;
+    border: 0;
+
+    .logo {
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+
 nav.navigation-vertical {
   ul {
     display: flex;

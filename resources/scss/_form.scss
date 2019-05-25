@@ -1,27 +1,48 @@
 @import "variables";
 
+input {
+  color: $basic;
+  background: $white;
+  border: 1px solid $gray-50;
+  -webkit-border-radius: $radius-normal;
+  -moz-border-radius: $radius-normal;
+  border-radius: $radius-normal;
+  padding: 10px 15px;
+  -webkit-transition: border-color 300ms;
+  -moz-transition: border-color 300ms;
+  -ms-transition: border-color 300ms;
+  -o-transition: border-color 300ms;
+  transition: border-color 300ms;
+
+  &:hover,
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 8px lighten($primary, 45%);
+  }
+}
+
 .form-group {
   position: relative;
   margin: 15px 0;
+
+  i {
+    font-size: 20px;
+    position: absolute;
+    color: #878787;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+  }
+
+  i + input {
+    padding-left: 40px;
+  }
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   margin: 0;
-}
-
-.form-group i {
-  font-size: 20px;
-  position: absolute;
-  color: #878787;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 12px;
-}
-
-.form-group .icon {
-  padding-left: 40px !important;
 }
 
 input[type=text].form-control,

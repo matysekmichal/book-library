@@ -56,3 +56,20 @@
     }
   }
 }
+
+.box {
+  width: 100%;
+  max-width: 400px;
+  background-color: $white;
+  -webkit-border-radius: $radius-normal;
+  -moz-border-radius: $radius-normal;
+  border-radius: $radius-normal;
+  box-shadow: $shadow-big;
+  padding: 30px;
+  margin: 0 auto;
+
+  &.margins {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+}
