@@ -10,13 +10,14 @@ body {
 @import "nav";
 @import "form";
 @import "buttons";
+@import "grids";
 
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700&subset=latin-ext');
 
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
-  color: #0c0b18;
+  color: $basic;
   background-color: $gray-10;
 }
 
@@ -90,6 +91,19 @@ aside {
       height: 50px;
       padding-left: 40px;
       font-size: $h6;
+    }
+
+    i {
+      color: $gray-50;
+      -webkit-transition: color 300ms;
+      -moz-transition: color 300ms;
+      -ms-transition: color 300ms;
+      -o-transition: color 300ms;
+      transition: color 300ms;
+    }
+
+    input:focus + i {
+      color: $primary;
     }
   }
 

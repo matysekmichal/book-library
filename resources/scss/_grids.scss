@@ -1,0 +1,58 @@
+@import "variables";
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.books-grid {
+  .flex {
+    flex-direction: row;
+
+    .item {
+      width: 33.333%;
+
+      .cover {
+        height: 350px;
+        position: relative;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 102%;
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .content {
+        padding: 10px 5px;
+
+        .title {
+          color: $basic;
+          font-weight: bold;
+          font-size: $h5;
+        }
+
+        .author {
+          color: $basic;
+          font-size: $h6;
+          margin: 2px 0 6px;
+        }
+
+        .description {
+          color: $gray-70;
+          font-size: $h7;
+        }
+      }
+    }
+  }
+}

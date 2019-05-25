@@ -46,7 +46,7 @@
         <ul>
             <?php
                 foreach (genres($dbh) as $key => $genre) {
-                    echo '<li><a href="'. slugify($genre['name']) .'">'. $genre['name'] .'</a></li>';
+                    echo '<li><a href="/genre?g='. $genre['slug'] .'">'. $genre['name'] .'</a></li>';
                 }
             ?>
         </ul>
@@ -57,17 +57,3 @@
 
 <main>
     <div class="content-holder">
-        <form action="">
-            <div class="finder">
-                <div class="form-group">
-                    <i class="material-icons">search</i>
-                    <input type="text" placeholder="Wyszukaj książkę lub autora ...">
-                </div>
-                <button class="btn btn-dark btn-square">Szukaj</button>
-            </div>
-        </form>
-        <div class="content">
-            <div class="segment">
-                <h2 class="my-0">Najnowsze książki</h2>
-                <hr>
-            </div>
