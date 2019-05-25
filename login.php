@@ -11,17 +11,21 @@ include 'resources/layout/header/header-simplify.php';
     <form action="">
         <div class="form-group">
             <i class="material-icons">person</i>
-            <input type="text" name="login" placeholder="Login" autofocus>
+            <input type="text" name="login" placeholder="Login" autofocus required>
         </div>
 
         <div class="form-group">
             <i class="material-icons">https</i>
-            <input type="password" name="password" placeholder="Hasło">
+            <input type="password" name="password" placeholder="Hasło" required>
         </div>
 
         <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Zaloguj się</button>
         </div>
+
+        <p class="text-center h7 text-gray-70">
+            Nie mam konta. <a href="/register" class="link-gray text-decoration">Zarejestruj się</a>.
+        </p>
     </form>
 </div>
 

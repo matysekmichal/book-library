@@ -13,11 +13,28 @@
 a {
   color: #0040e0;
   text-decoration: none;
+  -webkit-transition: color 300ms;
+  -moz-transition: color 300ms;
+  -ms-transition: color 300ms;
+  -o-transition: color 300ms;
   transition: color 300ms;
 }
 
 a:hover {
   color: #0036be;
+}
+
+
+a.link-gray {
+  color: $gray-70;
+
+  &:hover {
+    color: $gray-90;
+  }
+}
+
+a.text-decoration {
+  text-decoration: underline;
 }
 
 hr {
@@ -83,6 +100,7 @@ ol.rules ul {
 .text-primary {color: $primary;}
 .text-secondary {color: $secondary;}
 .text-basic {color: $basic;}
+.text-muted {color: $gray-50;}
 .text-gray-00 {color: $gray-00;}
 .text-gray-10 {color: $gray-10;}
 .text-gray-20 {color: $gray-20;}

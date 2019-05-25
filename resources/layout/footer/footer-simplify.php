@@ -6,6 +6,9 @@
 </footer>
 </main>
 </div>
-<?= $footer_scripts ?>
+<?php
+echo $taste;
+echo $footer_scripts;
+?>
 </body>
 </html>

@@ -3,7 +3,8 @@
 class App
 {
     const APP_NAME = 'Book Library';
-    const DEBUG_MODE = true;
+    const APP_URL = 'http://booklibrary.staging/';
+    const APP_DEBUG = true;
 
     // Database
     const DB_HOST = '172.31.0.1';

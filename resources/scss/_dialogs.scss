@@ -1,0 +1,60 @@
+@import "variables";
+
+.taste {
+  position: absolute;
+  display: block;
+  top: 15px;
+  left: 50%;
+  color: $white;
+  border-radius: $radius-normal;
+  box-shadow: $shadow-normal;
+  padding: 5px 10px 5px 10px;
+  transform: translate(-50%, 0%);
+  animation: 600ms ease-out 0s 1 slideInFromLeft;
+  opacity: 1;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -ms-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+
+  &.success {
+    background-color: $success;
+  }
+
+  &.danger {
+    background-color: $danger;
+  }
+
+  &.info {
+    background-color: $info;
+  }
+
+  &.warning {
+    background-color: $warning;
+  }
+
+  i {
+    font-size: $h5;
+    vertical-align: sub;
+  }
+
+  span {
+    font-size: $h7 !important;
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -200%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0%);
+    }
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+}

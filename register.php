@@ -8,20 +8,20 @@ include 'resources/layout/header/header-simplify.php';
 
 <div class="box margins">
     <h1 class="h3 mt-0 mb-3 text-center">Rejestracja</h1>
-    <form action="">
+    <form action="app/Auth/Register.php" method="post">
         <div class="form-group">
             <i class="material-icons">person</i>
-            <input type="text" name="login" placeholder="Login" autofocus>
+            <input type="text" name="login" placeholder="Login" autofocus required>
         </div>
 
         <div class="form-group">
             <i class="material-icons">email</i>
-            <input type="email" name="email" placeholder="Email">
+            <input type="email" name="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
             <i class="material-icons">https</i>
-            <input type="password" name="password" placeholder="Hasło">
+            <input type="password" name="password" placeholder="Hasło" required>
         </div>
 
         <div class="form-group from-checkbox">
@@ -30,7 +30,7 @@ include 'resources/layout/header/header-simplify.php';
         </div>
 
         <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Załóż konto</button>
+            <button type="submit" name="register" class="btn btn-primary">Załóż konto</button>
         </div>
     </form>
 </div>
