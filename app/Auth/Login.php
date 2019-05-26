@@ -6,14 +6,14 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = 'SELECT password FROM borrowers WHERE email = :email LIMIT 1';
+    $query = 'SELECT bor_password FROM borrowers WHERE bor_email = :email LIMIT 1';
     $result = $dbh->prepare($query);
 
     $result->execute([
         'email' => $email,
     ]);
 
-    $fetchedPassword = $result->fetch()['password'];
+    $fetchedPassword = $result->fetch()['bor_password'];
 
     if (password_verify($password, $fetchedPassword)) {
         $_SESSION['auth'] = baseEncrypt($email);

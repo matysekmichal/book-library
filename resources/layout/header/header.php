@@ -49,7 +49,7 @@
         <ul>
             <?php
                 foreach (genres($dbh) as $key => $genre) {
-                    echo '<li><a href="/genre?g='. $genre['slug'] .'">'. $genre['name'] .'</a></li>';
+                    echo '<li><a href="/genre?g='. $genre['g_slug'] .'">'. $genre['g_name'] .'</a></li>';
                 }
             ?>
         </ul>

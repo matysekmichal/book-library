@@ -43,6 +43,16 @@ hr {
   height: 0;
 }
 
+p {
+  line-height: $h3;
+}
+
+p i,
+span i {
+  vertical-align: middle;
+  font-size: $h6 !important;
+}
+
 .font-special {
   font-family: 'Merriweather', serif;
 }
@@ -77,6 +87,20 @@ hr {
 
 .font-weight-bolder {
   font-weight: $font-weight-bolder;
+}
+
+// Colors
+
+.text-success {
+  color: $success;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-danger {
+  color: $danger;
 }
 
 // List

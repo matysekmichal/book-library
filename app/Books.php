@@ -1,8 +1,30 @@
 <?php
 
+
+function fetchBook($dbh, $slug)
+{
+    $query = 'SELECT * FROM books b
+        LEFT JOIN book_authors ba on b.b_id = ba.ba_book_id
+            LEFT JOIN authors a on ba.ba_author_id = a.a_id
+        LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
+            LEFT JOIN genres g on bg.bg_genre_id = g.g_id
+        LEFT JOIN book_ratings br on b.b_id = br.br_book_id
+        LEFT JOIN book_opinions bo on b.b_id = bo.bo_book_id
+        WHERE b.b_slug = :slug LIMIT 1';
+
+    $result = $dbh->prepare($query);
+
+    $result->bindValue(':slug', $slug, PDO::PARAM_STR);
+
+    $result->execute();
+
+    return $result->fetch();
+}
+
 function fetchBooks($dbh, $limit = 99)
 {
     $query = 'SELECT * FROM books LIMIT :limit';
+
     $result = $dbh->prepare($query);
 
     $result->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -12,13 +34,32 @@ function fetchBooks($dbh, $limit = 99)
     return $result->fetchAll();
 }
 
+function fetchBooksByGenre($dbh, $slug, $limit = 99)
+{
+    $query = 'SELECT * FROM books b
+        LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
+        LEFT JOIN genres g on bg.bg_genre_id = g.g_id
+        WHERE g.g_slug = :slug
+        LIMIT :limit';
+
+    $result = $dbh->prepare($query);
+
+    $result->bindValue(':slug', $slug, PDO::PARAM_STR);
+    $result->bindValue(':limit', $limit, PDO::PARAM_INT);
+
+    $result->execute();
+
+    return $result->fetchAll();
+}
+
 function getBookAuthors($dbh, $book)
 {
-    $bookId = $book['id'];
+    $bookId = $book['b_id'];
 
     $query = 'SELECT * FROM book_authors
-        LEFT JOIN authors a on book_authors.author_id = a.id
-        WHERE book_id = :book_id';
+        LEFT JOIN authors a on book_authors.ba_author_id = a.a_id
+        WHERE ba_book_id = :book_id';
+
     $result = $dbh->prepare($query);
 
     $result->bindValue(':book_id', $bookId, PDO::PARAM_INT);
@@ -32,10 +73,23 @@ function getBookAuthors($dbh, $book)
     $authorsText = '';
 
     foreach ($authors as $author) {
-        $authorsText .= '<a href="/author?id='. $author['id'] .'">'. $author['firstname'] .' '. $author['lastname'] .'</a>';
+        $authorsText .= '<a href="/author?id='. $author['a_id'] .'">'. $author['a_firstname'] .' '. $author['a_lastname'] .'</a>';
         $authorsText .= ($i < $authorsNumber) ? ', ' : '';
         $i++;
     }
 
     return $authorsText;
+}
+
+function availabilityBook($qt)
+{
+    if ($qt > 2) {
+        $string = '<span class="text-success">Dostępna</span>';
+    } elseif ($qt > 0 && $qt <= 2) {
+        $string = '<span class="text-warning">Ostatnie sztuki</span>';
+    } else {
+        $string = '<span class="text-danger">Niedstępna</span>';
+    }
+
+    return $string;
 }

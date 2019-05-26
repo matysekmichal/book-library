@@ -6,7 +6,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
 
-    $query = 'INSERT INTO borrowers (email, password) VALUES (:email, :password)';
+    $query = 'INSERT INTO borrowers (bor_email, bor_password) VALUES (:email, :password)';
     $result = $dbh->prepare($query);
 
     try {

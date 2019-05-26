@@ -73,3 +73,23 @@
     margin-bottom: 120px;
   }
 }
+
+.book-first-section-grid {
+  display: flex;
+
+  .image {
+    width: 30%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .content {
+    width: 70%;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+}
