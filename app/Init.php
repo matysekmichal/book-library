@@ -9,9 +9,11 @@ if (App::APP_DEBUG) {
     ini_set('display_errors', 'On');
 }
 
-include "Helpers.php";
-include 'Crypt.php';
+include 'Helpers.php';
 include 'DatabaseConnection.php';
+include 'Storage/Cookie.php';
+include 'Storage/Session.php';
+include 'Crypt.php';
 include 'Dialogs/Taste.php';
 
 $footer_scripts = '';

@@ -14,9 +14,9 @@ function getGenre($dbh, $genre)
     $query = 'SELECT * FROM genres WHERE slug = :genre';
     $result = $dbh->prepare($query);
 
-    $result->execute([
-        'genre' => $genre
-    ]);
+    $result->bindValue(':genre', $genre, PDO::PARAM_STR);
+
+    $result->execute();
 
     return $result->fetchAll();
 }

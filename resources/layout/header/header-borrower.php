@@ -42,18 +42,6 @@
             </ul>
         <?php }?>
     </nav>
-
-    <h2 class="h5 mt-3 mb-0">Kategorie</h2>
-    <hr class="mt-1">
-    <nav class="navigation-vertical">
-        <ul>
-            <?php
-                foreach (genres($dbh) as $key => $genre) {
-                    echo '<li><a href="/genre?g='. $genre['slug'] .'">'. $genre['name'] .'</a></li>';
-                }
-            ?>
-        </ul>
-    </nav>
 </aside>
 
 
