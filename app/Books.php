@@ -21,35 +21,40 @@ function fetchBook($dbh, $slug)
     return $result->fetch();
 }
 
-function fetchBooks($dbh, $limit = 99)
-{
-    $query = 'SELECT * FROM books LIMIT :limit';
-
-    $result = $dbh->prepare($query);
-
-    $result->bindValue(':limit', $limit, PDO::PARAM_INT);
-
-    $result->execute();
-
-    return $result->fetchAll();
-}
-
-function fetchBooksByGenre($dbh, $slug, $limit = 99)
+function fetchBooks($dbh, $genre = '', $page = 1, $perPage = 12)
 {
     $query = 'SELECT * FROM books b
         LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
-        LEFT JOIN genres g on bg.bg_genre_id = g.g_id
-        WHERE g.g_slug = :slug
-        LIMIT :limit';
+        LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
+
+    if ($genre) $query .= ' WHERE g.g_slug = :genre';
+
+    $query .= ' LIMIT :start, :end';
+
+    $pages = 'SELECT count(*) as pages FROM books b
+        LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
+        LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
+
+    if ($genre) $pages .= ' WHERE g.g_slug = :genre';
 
     $result = $dbh->prepare($query);
+    $result_pages = $dbh->prepare($pages);
 
-    $result->bindValue(':slug', $slug, PDO::PARAM_STR);
-    $result->bindValue(':limit', $limit, PDO::PARAM_INT);
+    if ($genre) $result->bindValue(':genre', $genre, PDO::PARAM_STR);
+    $result->bindValue(':start', ($page - 1) * $perPage, PDO::PARAM_INT);
+    $result->bindValue(':end', $perPage, PDO::PARAM_INT);
+
+    if ($genre) $result_pages->bindValue(':genre', $genre, PDO::PARAM_STR);
 
     $result->execute();
+    $result_pages->execute();
 
-    return $result->fetchAll();
+    return [
+        'data' => $result->fetchAll(),
+        'page' => $page,
+        'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
+        'perPage' => $perPage,
+    ];
 }
 
 function getBookAuthors($dbh, $book)

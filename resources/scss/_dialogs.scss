@@ -1,7 +1,42 @@
 @import "variables";
 
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000000f0;
+  z-index: 999;
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    margin: 15px;
+    padding: 0;
+    background: $white;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    .content {
+      padding: 20px;
+
+      .title {
+        font-size: $h3;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
 .taste {
-  position: absolute;
+  position: fixed;
   display: block;
   top: 15px;
   left: 50%;

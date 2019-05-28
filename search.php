@@ -1,10 +1,12 @@
 <?php
 
 include 'app/Init.php';
+include 'app/Books.php';
 include 'app/Search.php';
 
 $pageTitle = 'Szukaj - Book Library';
-$search = $_GET['q'];
+$search = ($_GET['q']) ?? header('Location: ' . $_SERVER['HTTP_REFERER']);
+$page = ($_GET['page']) ?? 1;
 
 include 'resources/layout/header/header.php';
 ?>
@@ -16,20 +18,10 @@ include 'resources/layout/header/header.php';
     </div>
 
     <?php
-        echo '<pre>';
-        print_r(search($dbh, $search, 4));
-        echo '</pre>';
+    $books = search($dbh, $search);
+
+    include 'resources/layout/books-grid.php';
     ?>
-
-    <div class="books-grid">
-        <div class="flex">
-            <?php
-            foreach (search($dbh, $search, 4) as $row) {
-
-            ?>
-            <?php } ?>
-        </div>
-    </div>
 
 <?php
 include 'resources/layout/footer/footer.php';

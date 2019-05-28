@@ -4,6 +4,7 @@ include 'app/Init.php';
 include 'app/Books.php';
 
 $pageTitle = 'Book Library - wypożyczalnia książek';
+$page = ($_GET['page']) ?? 1;
 
 include 'resources/layout/header/header.php';
 ?>
@@ -15,7 +16,7 @@ include 'resources/layout/header/header.php';
     </div>
 
     <?php
-    $books = fetchBooks($dbh, 4);
+    $books = fetchBooks($dbh, '',$page);
 
     include 'resources/layout/books-grid.php';
     ?>

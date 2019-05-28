@@ -7,6 +7,7 @@
         © 2019 Michał Matysek. All rights reserved.
     </p>
 </footer>
+
 <?php
 echo $taste;
 echo $footer_scripts;

@@ -1,7 +1,12 @@
 <?php
     include 'head.php';
 ?>
-<body class="body-simplify bg-primary-gradient">
+<body class="body-simplify bg-primary-gradient <?= $body_class ?>">
+
+<?php
+include 'resources/layout/basket-widget.php';
+?>
+
 <header class="simple">
     <div class="navbar">
         <div class="container">

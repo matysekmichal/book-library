@@ -16,4 +16,7 @@ include 'Storage/Session.php';
 include 'Crypt.php';
 include 'Dialogs/Taste.php';
 
+$body_class = '';
 $footer_scripts = '';
+
+$body_class .= (isset($_COOKIE[getNameCookie('basket_show')])) ? 'active-dialog' : '';

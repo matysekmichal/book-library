@@ -1,24 +1,29 @@
 <?php
 
-function setHoursCookie($name, $value, $hours = 60)
+function getNameCookie($name)
 {
-    setcookie($name, $value,time() + (60 * $hours), '/');
+    return str_replace(['%', '='], '', baseEncrypt($name));
 }
 
-function setFlashCookie($name, $value, $seconds = 15)
+function setHoursCookie($name, $value, $hours = 60)
 {
-    setcookie($name,$value,time() + $seconds, '/');
+    setcookie(getNameCookie($name), $value,time() + (60 * $hours), '/');
+}
+
+function setFlashCookie($name, $value, $seconds = 10)
+{
+    setcookie(getNameCookie($name), $value,time() + $seconds, '/');
 }
 
 function setPermanentCookie($name, $value)
 {
-    setcookie($name, $value,0, '/');
+    setcookie(getNameCookie($name), $value,0, '/');
 }
 
 function unsetCookie($string)
 {
-    unset($_COOKIE[$string]);
-    setcookie($string, null, -1, '/');
+    unset($_COOKIE[getNameCookie($string)]);
+    setcookie(getNameCookie($string), null, -1, '/');
 }
 
 function flashSuccess ($value, $redirect = '')

@@ -2,7 +2,12 @@
     include 'app/Genres.php';
     include 'head.php';
 ?>
-<body>
+<body class="active-dialog <?= $body_class ?>">
+
+<?php
+    include 'resources/layout/basket-widget.php';
+?>
+
 <header>
     <div class="navbar">
         <div class="container">
