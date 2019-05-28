@@ -2,11 +2,16 @@
 
 function addToBasket($item)
 {
-    if ($basket = getItemsInBasket()) {
-        $booksInBasket = array_merge($basket, [baseEncrypt($item)]);
-    } else {
-        $booksInBasket = [baseEncrypt($item)];
+    $basket = getItemsInBasket();
+    $item = baseEncrypt($item);
+
+    foreach ($basket as $book) {
+        if ($book == $item) {
+            flashInfo('Posiadasz już tą książkę w swoim koszyku.');
+            die();
+        }
     }
+    $booksInBasket = array_merge($basket, [$item]);
 
     setPermanentCookie('basket', json_encode($booksInBasket));
     setFlashCookie('basket_show', '1');
