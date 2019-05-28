@@ -41,7 +41,7 @@
         <?php } else { ?>
             <ul>
                 <li><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
-                <li><a href=""><i class="material-icons">archive</i> Schowek <span class="badge">22</span></a></li>
+                <li><a href=""><i class="material-icons">archive</i> Schowek <span class="badge"><?= itemsInBasket() ?></span></a></li>
                 <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
             </ul>
         <?php }?>

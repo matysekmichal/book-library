@@ -17,6 +17,20 @@ function addToBasket($item)
     echo goBack();
 }
 
+function getItemsInBasket()
+{
+    if (!isset($_COOKIE[getNameCookie('basket')])) {
+        return [];
+    }
+
+    return json_decode($_COOKIE[getNameCookie('basket')]);
+}
+
+function itemsInBasket()
+{
+    return count(getItemsInBasket());
+}
+
 function goBack()
 {
     return '<script>
