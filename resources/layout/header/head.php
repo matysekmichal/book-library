@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $pageTitle ?? App::APP_NAME ?></title>
 
+    <meta name="description" content="<?= $metaDescription ?? 'Nowoczesna biblioteka dająca możliwość wypożyczania zbiorów przez internet. Wypożyczk książkę w serwisie, a będzie ona zarezerwowana dla Ciebie przez 3 dni.' ?>">
     <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
     <link rel="icon" href="img/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="/resources/styles/master.css">

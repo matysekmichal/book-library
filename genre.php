@@ -1,20 +1,28 @@
 <?php
 
 include 'app/Init.php';
+include 'app/Genres.php';
 include 'app/Books.php';
 
-$pageTitle = 'Book Library - wypożyczalnia książek';
+$genre = getGenreInfo($dbh, $_GET['g']);
+$genreName = $genre['g_name'];
+$metaDescription = (empty($genre['g_meta_description'])) ? $genre['g_meta_description'] : $genre['g_description'];
+$pageTitle = $genreName .' - Book Library';
 $page = ($_GET['page']) ?? 1;
 
 include 'resources/layout/header/header.php';
 ?>
 
     <div class="content">
-    <?php
-    $books = fetchBooksPaginate($dbh, $_GET['g'], $page);
+    <div class="segment">
+        <h2 class="my-0"><?= $genreName ?></h2>
+        <hr>
+        <?php
+        $books = fetchBooksPaginate($dbh, $_GET['g'], $page);
 
-    include 'resources/layout/books-grid-pagination.php';
-    ?>
+        include 'resources/layout/books-grid-pagination.php';
+        ?>
+    </div>
 
 <?php
 include 'resources/layout/footer/footer.php';

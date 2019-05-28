@@ -1,5 +1,4 @@
 <?php
-    include 'app/Genres.php';
     include 'head.php';
 ?>
 <body class="<?= $body_class ?>">
