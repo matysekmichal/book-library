@@ -1,6 +1,5 @@
 <?php
 
-
 function fetchBook($dbh, $slug)
 {
     $query = 'SELECT * FROM books b
@@ -21,7 +20,7 @@ function fetchBook($dbh, $slug)
     return $result->fetch();
 }
 
-function fetchBooks($dbh, $genre = '', $page = 1, $perPage = 12)
+function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
 {
     $query = 'SELECT * FROM books b
         LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
@@ -55,6 +54,29 @@ function fetchBooks($dbh, $genre = '', $page = 1, $perPage = 12)
         'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
         'perPage' => $perPage,
     ];
+}
+
+function fetchBooks($dbh, $topic = '', $limit = 3)
+{
+    $query = 'SELECT * FROM books b
+        LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
+        LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
+
+    switch ($topic) {
+        default :
+            $query .= ' ORDER BY b.b_created_at desc';
+        break;
+    }
+
+    $query .= ' LIMIT :limit';
+
+    $result = $dbh->prepare($query);
+
+    $result->bindValue(':limit', $limit, PDO::PARAM_INT);
+
+    $result->execute();
+
+    return $result->fetchAll();
 }
 
 function getBookAuthors($dbh, $book)

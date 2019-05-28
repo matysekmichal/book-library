@@ -1,12 +1,11 @@
 <?php
+include 'pagination.php';
+
 if (isset($books)) { ?>
     <div class="books-grid">
         <div class="flex">
             <?php
-//            echo '<pre>';
-//            print_r($books);
-//            echo '</pre>';
-            foreach ($books as $book) {
+            foreach ($books['data'] as $book) {
                 ?>
                 <div class="item">
                     <div class="cover">
@@ -31,6 +30,9 @@ if (isset($books)) { ?>
     </div>
 
 <?php } ?>
+
+<?= pagination($books['page'], $books['pages']) ?>
+
 
 
 

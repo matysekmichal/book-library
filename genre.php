@@ -11,9 +11,9 @@ include 'resources/layout/header/header.php';
 
     <div class="content">
     <?php
-    $books = fetchBooks($dbh, $_GET['g'], $page);
+    $books = fetchBooksPaginate($dbh, $_GET['g'], $page);
 
-    include 'resources/layout/books-grid.php';
+    include 'resources/layout/books-grid-pagination.php';
     ?>
 
 <?php

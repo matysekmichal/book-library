@@ -7,7 +7,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
             window.setTimeout(function () {
                 taste.remove();
-            }, 400)
+            }, 400);
         }
     }, 6000);
+
+    let closeDialog = document.getElementById('dialog-close').addEventListener('click', function() {
+        let dialog = document.getElementById('dialog');
+
+        if (dialog) {
+            window.setTimeout(function () {
+                dialog.classList.add('hide');
+                document.body.classList.remove('active-dialog');
+                dialog.remove();
+            }, 400);
+        }
+    }, false);
 });

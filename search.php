@@ -20,7 +20,7 @@ include 'resources/layout/header/header.php';
     <?php
     $books = search($dbh, $search);
 
-    include 'resources/layout/books-grid.php';
+    include 'resources/layout/books-grid-pagination.php';
     ?>
 
 <?php

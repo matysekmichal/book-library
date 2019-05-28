@@ -228,18 +228,19 @@ aside {
 /* Footer */
 
 footer {
+  font-size: $h8;
 }
 
 /* Media */
 
-@media (max-with: 1200px) {
+@media (max-width: 1200px) {
 }
 
-@media (max-with: 992px) {
+@media (max-width: 992px) {
 }
 
-@media (max-with: 762px) {
+@media (max-width: 762px) {
 }
 
-@media (max-with: 576px) {
+@media (max-width: 576px) {
 }
