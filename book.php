@@ -36,7 +36,4 @@ include 'resources/layout/header/header.php';
             <p class="text-gray-90"><?= $book['b_description'] ?></p>
         </div>
 <?php
-//echo '<pre>';
-//print_r($book);
-//echo '</pre>';
 include 'resources/layout/footer/footer.php';

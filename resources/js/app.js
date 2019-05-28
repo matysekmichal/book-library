@@ -11,19 +11,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 6000);
 
-    let close = document.getElementById('dialog-close');
+    let dialogClose = document.getElementsByClassName('dialog-close');
 
-    if (close) {
-        close.addEventListener('click', function () {
-            let dialog = document.getElementById('dialog');
+    let closeDialog = function() {
+        let dialog = document.getElementById('dialog');
 
-            if (dialog) {
-                window.setTimeout(function () {
-                    dialog.classList.add('hide');
-                    document.body.classList.remove('active-dialog');
-                    dialog.remove();
-                }, 400);
-            }
-        }, false)
+        if (dialog) {
+            window.setTimeout(function () {
+                dialog.classList.add('hide');
+                document.body.classList.remove('active-dialog');
+                dialog.remove();
+            }, 400);
+        }
+    };
+
+    for (let i = 0; i < dialogClose.length; i++) {
+        dialogClose[i].addEventListener('click', closeDialog, false);
     }
 });

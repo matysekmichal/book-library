@@ -123,64 +123,93 @@
 }
 
 .book-list-grid {
-  display: flex;
-  flex-flow: row;
-  background: $gray-10;
-
-  .cover {
+  .item {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
+    flex-flow: row;
+    width: 100%;
+    background: $gray-10;
+    margin: 10px 0;
 
-    img {
-      max-width: 100%;
-    }
-  }
+    &.wide {
+      .cover {
+        max-width: 90px;
+      }
 
-  .content {
-    background: transparent !important;
-    width: 70%;
+      .content {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+        padding-bottom: 0;
+        align-self: center;
+      }
 
-    .heading {
-      text-align: left;
-      font-size: $h5;
-      font-weight: $font-weight-bold;
-      margin: 0 0 10px 0;
-      color: $basic;
-
-      &:hover {
-        color: lighten($basic, 20%);
+      .action {
+        width: 10%;
       }
     }
 
-    .description {
-      color: $gray-90;
-      font-size: $h7;
-    }
-  }
+    .cover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
 
-  .action {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-
-    .delete {
-      color: $danger;
-
-      &:hover {
-        color: lighten($danger, 20%);
+      img {
+        display: block;
+        max-width: 100%;
       }
     }
-  }
 
-  .heading, .delete {
-    -webkit-transition: color 300ms;
-    -moz-transition: color 300ms;
-    -ms-transition: color 300ms;
-    -o-transition: color 300ms;
-    transition: color 300ms;
+    .content {
+      background: transparent !important;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 0;
+      padding-bottom: 0;
+      align-self: center;
+
+      .heading {
+        text-align: left;
+        font-size: $h5;
+        font-weight: $font-weight-bold;
+        margin: 0 0 10px 0;
+        color: $basic;
+
+        &:hover {
+          color: lighten($basic, 20%);
+        }
+      }
+
+      .description {
+        color: $gray-90;
+        font-size: $h7;
+      }
+    }
+
+    .action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10%;
+
+      .delete {
+        color: $danger;
+
+        &:hover {
+          color: lighten($danger, 20%);
+        }
+      }
+    }
+
+    .heading, .delete {
+      -webkit-transition: color 300ms;
+      -moz-transition: color 300ms;
+      -ms-transition: color 300ms;
+      -o-transition: color 300ms;
+      transition: color 300ms;
+    }
   }
 }
 

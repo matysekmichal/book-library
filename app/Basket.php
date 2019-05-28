@@ -2,19 +2,24 @@
 
 function addToBasket($item)
 {
-    $cookieName = getNameCookie('basket');
-
-    if (isset($_COOKIE[$cookieName])) {
-        $currentBasket = json_decode($_COOKIE[$cookieName]);
-        $booksInBasket = array_merge($currentBasket, [baseEncrypt($item)]);
+    if ($basket = getItemsInBasket()) {
+        $booksInBasket = array_merge($basket, [baseEncrypt($item)]);
     } else {
         $booksInBasket = [baseEncrypt($item)];
     }
 
     setPermanentCookie('basket', json_encode($booksInBasket));
     setFlashCookie('basket_show', '1');
+}
 
-    echo goBack();
+function removeFromBasket($item)
+{
+    $basket = getItemsInBasket();
+
+    $item = baseDecrypt($item);
+    array_splice($basket, (int) $item, 1);
+
+    setPermanentCookie('basket', json_encode($basket));
 }
 
 function getItemsInBasket()
@@ -29,11 +34,4 @@ function getItemsInBasket()
 function itemsInBasket()
 {
     return count(getItemsInBasket());
-}
-
-function goBack()
-{
-    return '<script>
-            window.history.back();
-        </script>';
 }

@@ -50,3 +50,10 @@ function prettyDate($date)
 
     return $date[2] .' '. $month .' '. $date[0];
 }
+
+function goBack()
+{
+    echo '<script>
+            window.history.back();
+        </script>';
+}
