@@ -23,7 +23,9 @@ function limit_text($text, $limit = 15)
 
 function prettyDateTime($date)
 {
-//    TODO: preettyDateTime
+    $dateTimeArr = explode(' ', $date);
+
+    return prettyDate($dateTimeArr[0]) .' '. prettyTime($dateTimeArr[1]);
 }
 
 function prettyDate($date)
@@ -49,6 +51,14 @@ function prettyDate($date)
     $month = $monthsToString[$date[1] * 1];
 
     return $date[2] .' '. $month .' '. $date[0];
+}
+
+function prettyTime($time)
+{
+    $time = date('H:i', strtotime($time));
+    $time = explode(':', $time);
+
+    return $time[0] .':'. $time[1];
 }
 
 function goBack()

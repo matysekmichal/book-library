@@ -6,6 +6,18 @@ table {
   border-radius: $radius-normal;
   overflow: hidden;
 
+  .vat {
+    vertical-align: top;
+  }
+
+  .vam {
+    vertical-align: middle;
+  }
+
+  .vab {
+    vertical-align: bottom;
+  }
+
   th, td {
     padding: 10px 15px;
   }

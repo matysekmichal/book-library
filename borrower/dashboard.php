@@ -14,8 +14,8 @@ $borrower = currentUser($dbh);
     <div class="content">
 
     <div class="segment">
-        <h2 class="my-0">Witaj!</h2>
-        <hr>
+        <h2 class="mt-0">Witaj!</h2>
+
         <?php
         echo $borrower['bor_student_album'];
             if (!checkProfileComplete($borrower)) { ?>
@@ -28,8 +28,7 @@ $borrower = currentUser($dbh);
     </div>
 
     <div class="segment mt-5">
-        <h2 class="my-0">Historia wypożyczeń</h2>
-        <hr>
+        <h2>Historia wypożyczeń</h2>
 
         <table>
             <thead>
@@ -46,8 +45,8 @@ $borrower = currentUser($dbh);
             foreach ($loans['data'] as $key => $loan) {
                 $borrowedBooks = getBorrowedBooks($dbh, $loan['l_id']);?>
             <tr>
-                <td class="text-center"><?= $loan['l_borrow_day'] ?></td>
-                <td class="text-center"><?= $loan['l_return_day'] ?></td>
+                <td class="text-center vat"><?= prettyDateTime($loan['l_borrow_day']) ?></td>
+                <td class="text-center vat"><?= prettyDate($loan['l_return_day']) ?></td>
                 <td>
                     <?php foreach ($borrowedBooks as $borrowedBook) {?>
                         <a href="/book?b=<?= $borrowedBook['b_slug'] ?>"><?= $borrowedBook['b_name'] ?></a><br>

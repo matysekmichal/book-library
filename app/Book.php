@@ -51,6 +51,7 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
     return [
         'data' => $result->fetchAll(),
         'page' => $page,
+        'items' => $result_pages->fetch()['pages'],
         'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
         'perPage' => $perPage,
     ];

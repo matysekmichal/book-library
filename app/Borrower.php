@@ -4,6 +4,7 @@ function userLoans($dbh, $borrower, $page = 1, $perPage = 6)
 {
     $query = 'SELECT * FROM loan
         WHERE l_borrower_id = :borrower
+        ORDER BY l_created_at DESC
         LIMIT :start, :end';
 
     $pages = 'SELECT COUNT(*) as pages FROM loan
@@ -20,10 +21,13 @@ function userLoans($dbh, $borrower, $page = 1, $perPage = 6)
     $result->execute();
     $result_pages->execute();
 
+    $pages = $result_pages->fetch()['pages'];
+
     return [
         'data' => $result->fetchAll(),
         'page' => $page,
-        'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
+        'items' => $pages,
+        'pages' => ceil($pages / $perPage),
         'perPage' => $perPage,
     ];
 }
