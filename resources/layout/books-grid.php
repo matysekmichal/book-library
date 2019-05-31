@@ -3,9 +3,6 @@ if (isset($books)) { ?>
     <div class="books-grid">
         <div class="flex">
             <?php
-//            echo '<pre>';
-//            print_r($books);
-//            echo '</pre>';
             foreach ($books as $book) {
                 ?>
                 <div class="item">

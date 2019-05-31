@@ -30,7 +30,7 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
 
     $query .= ' LIMIT :start, :end';
 
-    $pages = 'SELECT count(*) as pages FROM books b
+    $pages = 'SELECT COUNT(*) as pages FROM books b
         LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
         LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
 

@@ -1,6 +1,5 @@
 <?php
-    include 'app/Genres.php';
-    include 'head.php';
+include 'head.php';
 ?>
 <body class="<?= $body_class ?>">
 
@@ -17,39 +16,37 @@ include 'resources/layout/basket-widget.php';
                 </a>
             </div>
             <div>
-            <?php if (empty($_SESSION['auth'])) { ?>
-                <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
-                <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
-            <?php } else { ?>
-                <a href="/logout" class="h7 link-gray mr-2">Wyloguj się</a>
-            <?php } ?>
+                <?php if (empty($_SESSION['auth'])) { ?>
+                    <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
+                    <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
+                <?php } else { ?>
+                    <a href="/logout" class="h7 link-gray mr-2">Wyloguj się</a>
+                <?php } ?>
             </div>
         </div>
     </div>
 </header>
 
 <div class="container page-content-holder">
-<aside>
-    <h2 class="h5 my-0">Twoj konto</h2>
-    <hr class="mt-1">
-    <nav class="navigation-vertical nav-primary">
-        <?php if (empty($_SESSION['auth'])) { ?>
-            <p class="text-center">
-                <a href="/login" class="h7 text-uppercase link-gray">zaloguj się</a>
-                <i class="h8 text-gray-40">&nbsp; lub &nbsp;</i>
-                <a href="/register.php" class="h7 text-uppercase link-gray">zarejestruj</a>
-            </p>
-        <?php } else { ?>
-            <ul>
-                <li><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
-                <li><a href=""><i class="material-icons">archive</i> Schowek <span class="badge">22</span></a></li>
-                <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
-            </ul>
-        <?php }?>
-    </nav>
-</aside>
+    <aside>
+        <h2 class="h5 my-0">Twoj konto</h2>
+        <hr class="mt-1">
+        <nav class="navigation-vertical nav-primary">
+            <?php if (empty($_SESSION['auth'])) { ?>
+                <p class="text-center">
+                    <a href="/login" class="h7 text-uppercase link-gray">zaloguj się</a>
+                    <i class="h8 text-gray-40">&nbsp; lub &nbsp;</i>
+                    <a href="/register.php" class="h7 text-uppercase link-gray">zarejestruj</a>
+                </p>
+            <?php } else { ?>
+                <ul>
+                    <li><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
+                    <li><a href="/basket"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge"><?= getNumberItemsInBasket() ?></span></a></li>
+                    <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
+                </ul>
+            <?php }?>
+        </nav>
+    </aside>
 
-
-
-<main>
-    <div class="content-holder">
+    <main>
+        <div class="content-holder">
