@@ -41,7 +41,7 @@
         <?php } else { ?>
             <ul>
                 <li><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
-                <li><a href="/basket"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge"><?= itemsInBasket() ?></span></a></li>
+                <li><a href="/basket"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge"><?= getNumberItemsInBasket() ?></span></a></li>
                 <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
             </ul>
         <?php }?>

@@ -13,10 +13,8 @@ if (isset($_COOKIE[getNameCookie('basket_show')])) {
                 </div>
 
                 <?php
-                $basket = json_decode($_COOKIE[getNameCookie('basket')]);
-                $key = $basket[count($basket)-1];
-                $lastItem = baseDecrypt($basket[count($basket)-1]);
-                $book = fetchBook($dbh, $lastItem);
+                $basket = getItemsInBasket();
+                $book = fetchBook($dbh, $basket[getNumberItemsInBasket() - 1]->slug);
                 ?>
 
                 <div class="book-list-grid">

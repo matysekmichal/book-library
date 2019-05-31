@@ -16,10 +16,11 @@ function saveOrder($dbh)
     $booksQuery = "INSERT INTO borrowed_books_orders (bbo_loan_id, bbo_book_id) VALUES (:bbo_loan_id, :bbo_book_id)";
     $booksResult = $dbh->prepare($booksQuery);
 
+
     foreach (getItemsInBasket() as $book) {
         $booksResult->execute([
             ':bbo_loan_id' => $loanId,
-            ':bbo_book_id' => fetchBook($dbh, baseDecrypt($book))['b_id'],
+            ':bbo_book_id' => $book->id,
         ]);
     }
 

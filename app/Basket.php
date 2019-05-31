@@ -1,19 +1,29 @@
 <?php
 
-function addToBasket($item)
+function addToBasket($dbh, $item)
 {
     $basket = getItemsInBasket();
-    $item = baseEncrypt($item);
 
     foreach ($basket as $book) {
-        if ($book == $item) {
+        if ($book->slug == $item) {
             flashInfo('Posiadasz już tą książkę w swoim koszyku.');
             die();
         }
     }
-    $booksInBasket = array_merge($basket, [$item]);
 
-    setPermanentCookie('basket', json_encode($booksInBasket));
+    $query = 'SELECT b_id FROM books b WHERE b_slug = :slug';
+    $result = $dbh->prepare($query);
+    $result->bindValue(':slug', $item, PDO::PARAM_STR);
+    $result->execute();
+
+    $booksInBasket = array_merge($basket, [[
+        'id' => $result->fetch()['b_id'],
+        'slug' => $item,
+    ]]);
+
+    $booksInBasket = baseEncrypt(json_encode($booksInBasket));
+
+    setPermanentCookie('basket', $booksInBasket);
     setFlashCookie('basket_show', '1');
 }
 
@@ -24,7 +34,7 @@ function removeFromBasket($item)
     $item = baseDecrypt($item);
     array_splice($basket, (int) $item, 1);
 
-    setPermanentCookie('basket', json_encode($basket));
+    setPermanentCookie('basket', baseEncrypt(json_encode(($basket))));
 }
 
 function getItemsInBasket()
@@ -33,10 +43,10 @@ function getItemsInBasket()
         return [];
     }
 
-    return json_decode($_COOKIE[getNameCookie('basket')]);
+    return json_decode(baseDecrypt($_COOKIE[getNameCookie('basket')]));
 }
 
-function itemsInBasket()
+function getNumberItemsInBasket()
 {
     return count(getItemsInBasket());
 }

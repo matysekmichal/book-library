@@ -25,13 +25,9 @@ include 'resources/layout/header/header.php';
         <h2 class="my-0">Twój koszyk</h2>
         <hr>
         <?php if ($items = getItemsInBasket()) {?>
-
         <div class="book-list-grid">
             <?php
-            foreach ($items as $key => $item) { $book = fetchBook($dbh, baseDecrypt($item));
-
-                print_r(baseDecrypt($item));
-                ?>
+            foreach ($items as $key => $item) { $book = fetchBook($dbh, $item->slug); ?>
                 <div class="item wide">
                     <div class="cover">
                         <a href="/book?b=<?= $book['b_slug'] ?>">
