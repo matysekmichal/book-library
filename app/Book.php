@@ -56,27 +56,46 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
     ];
 }
 
-function fetchBooks($dbh, $topic = '', $limit = 3)
+function getMostReadBooks($dbh, $limit)
 {
-    $query = 'SELECT * FROM books b
-        LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
-        LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
-
-    switch ($topic) {
-        default :
-            $query .= ' ORDER BY b.b_created_at desc';
-        break;
-    }
-
-    $query .= ' LIMIT :limit';
+    $query = 'SELECT *, COUNT(bbo.bbo_book_id) as most_read FROM books b
+        LEFT JOIN borrowed_books_orders bbo on b.b_id = bbo_book_id
+        GROUP BY bbo.bbo_book_id
+        ORDER BY most_read DESC
+        LIMIT :limit';
 
     $result = $dbh->prepare($query);
-
     $result->bindValue(':limit', $limit, PDO::PARAM_INT);
 
     $result->execute();
 
     return $result->fetchAll();
+}
+
+function getLatestBooks($dbh, $limit)
+{
+    $query = 'SELECT * FROM books b
+        ORDER BY b_published DESC
+        LIMIT :limit';
+
+    $result = $dbh->prepare($query);
+
+    $result->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $result->execute();
+
+    return $result->fetchAll();
+}
+
+function fetchBooksFactory($dbh, $topic = '', $limit = 3)
+{
+    switch ($topic) {
+        case 'most_read' :
+            return getMostReadBooks($dbh, $limit);
+        break;
+        default :
+            return getLatestBooks($dbh, $limit);
+        break;
+    }
 }
 
 function getBookAuthors($dbh, $book)
