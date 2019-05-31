@@ -21,6 +21,6 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     if ($result) {
         $_SESSION['auth'] = baseEncrypt($email);
-        flashSuccess('Utworzono konto');
+        flashSuccess('Utworzono konto', '#');
     }
 }

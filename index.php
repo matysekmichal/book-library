@@ -2,7 +2,7 @@
 
 include 'app/Init.php';
 include 'app/Genres.php';
-include 'app/Books.php';
+include 'app/Book.php';
 
 $pageTitle = 'Book Library - wypożyczalnia książek';
 

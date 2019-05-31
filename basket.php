@@ -2,10 +2,10 @@
 
 include 'app/Init.php';
 include 'app/Genres.php';
-include 'app/Books.php';
+include 'app/Book.php';
 
 if (isset($_GET['b'])) {
-    addToBasket($_GET['b']);
+    addToBasket($dbh, $_GET['b']);
     goBack();
     die();
 }
@@ -24,13 +24,14 @@ include 'resources/layout/header/header.php';
     <div class="segment">
         <h2 class="my-0">Twój koszyk</h2>
         <hr>
-        <?php
-        $items = json_decode($_COOKIE[getNameCookie('basket')]);
-        ?>
+        <?php if ($items = getItemsInBasket()) {?>
 
         <div class="book-list-grid">
             <?php
-            foreach ($items as $key => $item) { $book = fetchBook($dbh, baseDecrypt($item)); ?>
+            foreach ($items as $key => $item) { $book = fetchBook($dbh, baseDecrypt($item));
+
+                print_r(baseDecrypt($item));
+                ?>
                 <div class="item wide">
                     <div class="cover">
                         <a href="/book?b=<?= $book['b_slug'] ?>">
@@ -55,11 +56,23 @@ include 'resources/layout/header/header.php';
         </div>
 
         <div class="text-right mt-2">
-            <span class="btn btn-sm btn-square btn-secondary dialog-close">
+            <a href="confirmation" class="btn btn-sm btn-square btn-secondary dialog-close">
                 Potwierdzam wypożyczenie
                 <i class="material-icons">done</i>
-            </span>
+            </a>
         </div>
+
+        <?php } else { ?>
+            <h1 class="mt-5 mb-2 text-center text-basic text-uppercase">
+                Koszyk jest pusty
+            </h1>
+            <div class="text-center mb-5">
+                <p>
+                    Wybierz po lewej stronie jedną z interesujących<br>
+                    Cię kategorii i znajdź swoją następną książkę.
+                </p>
+            </div>
+        <?php } ?>
     </div>
 
 <?php

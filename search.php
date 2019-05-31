@@ -1,7 +1,7 @@
 <?php
 
 include 'app/Init.php';
-include 'app/Books.php';
+include 'app/Book.php';
 include 'app/Search.php';
 
 $pageTitle = 'Szukaj - Book Library';

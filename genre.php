@@ -2,7 +2,7 @@
 
 include 'app/Init.php';
 include 'app/Genres.php';
-include 'app/Books.php';
+include 'app/Book.php';
 
 $genre = getGenreInfo($dbh, $_GET['g']);
 $genreName = $genre['g_name'];

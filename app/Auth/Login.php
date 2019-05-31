@@ -17,7 +17,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     if (password_verify($password, $fetchedPassword)) {
         $_SESSION['auth'] = baseEncrypt($email);
-        flashSuccess('Zalogowano pomyślnie');
+        flashSuccess('Zalogowano pomyślnie', '#');
     } else {
         flashError('Nie istnieje takie konto.', 'login');
     }

@@ -26,27 +26,43 @@ function unsetCookie($string)
     setcookie(getNameCookie($string), null, -1, '/');
 }
 
-function flashSuccess ($value)
+function flashSuccess ($value, $redirect = '')
 {
     setFlashCookie('success', $value);
-    goBack();
+    if ($redirect) {
+        header('Location: '. App::APP_URL . $redirect);
+    } else {
+        goBack();
+    }
 }
 
-function flashError ($value)
+function flashError ($value, $redirect = '')
 {
     setFlashCookie('error', $value);
-    goBack();
+    if ($redirect) {
+        header('Location: '. App::APP_URL . $redirect);
+    } else {
+        goBack();
+    }
 }
 
-function flashInfo ($value)
+function flashInfo ($value, $redirect = '')
 {
     setFlashCookie('info', $value);
-    goBack();
+    if ($redirect) {
+        header('Location: '. App::APP_URL . $redirect);
+    } else {
+        goBack();
+    }
 }
 
-function flashWarning ($value)
+function flashWarning ($value, $redirect = '')
 {
     setFlashCookie('warning', $value);
-    goBack();
+    if ($redirect) {
+        header('Location: '. App::APP_URL . $redirect);
+    } else {
+        goBack();
+    }
 }
 
