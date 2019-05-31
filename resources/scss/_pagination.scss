@@ -48,5 +48,18 @@
     &.active:hover {
       background-color: darken($primary, 10%);
     }
+
+    &.disabled {
+      opacity: 0.5;
+
+      a {
+        color: $gray-80;
+        cursor: default;
+      }
+
+      &:hover {
+        background: $gray-20;
+      }
+    }
   }
 }

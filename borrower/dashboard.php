@@ -45,8 +45,8 @@ $borrower = currentUser($dbh);
             foreach ($loans['data'] as $key => $loan) {
                 $borrowedBooks = getBorrowedBooks($dbh, $loan['l_id']);?>
             <tr>
-                <td class="text-center vat"><?= prettyDateTime($loan['l_borrow_day']) ?></td>
-                <td class="text-center vat"><?= prettyDate($loan['l_return_day']) ?></td>
+                <td class="text-center"><?= prettyDateTime($loan['l_borrow_day']) ?></td>
+                <td class="text-center"><?= prettyDate($loan['l_return_day']) ?></td>
                 <td>
                     <?php foreach ($borrowedBooks as $borrowedBook) {?>
                         <a href="/book?b=<?= $borrowedBook['b_slug'] ?>"><?= $borrowedBook['b_name'] ?></a><br>

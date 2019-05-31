@@ -15,3 +15,35 @@
     background: $info;
   }
 }
+
+.badge-counter {
+  position: relative;
+  display: inline-block;
+  color: $white;
+  font-size: $h9;
+  font-weight: $font-weight-bold;
+  margin-left: 8px;
+
+  &.empty {
+    &::before {
+      background: $basic;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: $primary;
+    border-radius: 18px;
+    z-index: -1;
+  }
+}
