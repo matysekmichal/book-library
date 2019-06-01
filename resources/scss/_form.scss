@@ -43,6 +43,19 @@ input {
     width: 100%;
     margin: 0;
   }
+
+  label {
+    display: block;
+    color: $basic;
+    font-weight: $font-weight-bold;
+    font-size: $h7;
+    margin-bottom: 5px;
+  }
+
+  span.info {
+    font-size: $h9;
+    color: $gray-80;
+  }
 }
 
 //input[type=text].form-control,

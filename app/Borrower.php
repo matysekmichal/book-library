@@ -1,5 +1,44 @@
 <?php
 
+function updateProfile($dbh, $borrower_id)
+{
+    // TODO: VALIDATE INPUTS
+    $email = $_POST['email'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $studentAlbum = $_POST['student_album'];
+    $idDocument = $_POST['id_document'];
+
+    $query = 'UPDATE borrowers SET bor_email = :email,
+        bor_firstname = :firstname,
+        bor_lastname = :lastname,
+        bor_student_album = :student_album,
+        bor_id_document = :id_document
+        WHERE bor_id = :borrower_id';
+    $result = $dbh->prepare($query);
+
+    try {
+        $result->execute([
+            'email' => $email,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'student_album' => $studentAlbum,
+            'id_document' => $idDocument,
+            'borrower_id' => $borrower_id
+        ]);
+    } catch (Exception $e) {
+        echo $e;
+        die();
+        flashError('Przepraszamy. Nie mogliśmy zaktualizować twojego konta.');
+        die();
+    }
+
+    if ($result) {
+        $_SESSION['auth'] = baseEncrypt($email);
+        flashSuccess('Zaktualizowano konto');
+    }
+}
+
 function userLoans($dbh, $borrower, $page = 1, $perPage = 6)
 {
     $query = 'SELECT * FROM loan
