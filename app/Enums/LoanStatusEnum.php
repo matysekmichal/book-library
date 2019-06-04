@@ -1,6 +1,7 @@
 <?php
 
-class LoanStatusEnum {
+class LoanStatusEnum
+{
     const CANCELED = 100;
     const WAITING = 200;
     const COMPLETED = 300;

@@ -16,6 +16,8 @@
                 </a>
             </div>
             <div>
+            <a href="/basket" class="basket-link"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge-counter"><?= getNumberItemsInBasket() ?></span></a>
+                <span class="text-gray-30 mx-1">|</span>
             <?php if (empty($_SESSION['auth'])) { ?>
                 <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
                 <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>

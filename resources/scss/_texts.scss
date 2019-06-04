@@ -14,25 +14,38 @@
 .h10 {font-size: $h10 !important;}
 
 a {
-  color: #0040e0;
+  color: $primary;
   text-decoration: none;
   -webkit-transition: color 300ms;
   -moz-transition: color 300ms;
   -ms-transition: color 300ms;
   -o-transition: color 300ms;
   transition: color 300ms;
-}
-
-a:hover {
-  color: #0036be;
-}
-
-
-a.link-gray {
-  color: $gray-70;
 
   &:hover {
-    color: $gray-90;
+    color: $primary;
+  }
+
+  &.link-gray {
+    color: $gray-70;
+
+    &:hover {
+      color: $gray-90;
+    }
+  }
+
+  &.basket-link {
+    color: $basic;
+
+    i {
+      font-size: $h6;
+      vertical-align: text-bottom;
+      margin-right: 4px;
+    }
+
+    &:hover {
+      color: darken($basic, 20);
+    }
   }
 }
 

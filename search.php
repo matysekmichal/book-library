@@ -2,6 +2,7 @@
 
 include 'app/Init.php';
 include 'app/Book.php';
+include 'app/Genres.php';
 include 'app/Search.php';
 
 $pageTitle = 'Szukaj - Book Library';

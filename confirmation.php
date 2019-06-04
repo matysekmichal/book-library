@@ -11,6 +11,11 @@ $pageTitle = 'Potwierdzenie rezerwacji - Book Library';
 $nofollow = true;
 
 include 'resources/layout/header/header.php';
+
+if (empty(getItemsInBasket())) {
+    flashWarning('Twój koszyk jest pusty.', '#');
+}
+
 ?>
     <div class="content">
     <div class="segment">
