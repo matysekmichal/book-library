@@ -16,6 +16,7 @@ include 'Storage/Session.php';
 include 'Crypt.php';
 include 'Dialogs/Taste.php';
 include 'Basket.php';
+include 'Auth/BasicAuth.php';
 
 $body_class = '';
 $footer_scripts = '';

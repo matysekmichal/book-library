@@ -1,7 +1,5 @@
 <?php
 
-include '../Enums/RolesEnum.php';
-
 function hasRole($dbh, $login, RolesEnum $role)
 {
     $query = 'SELECT sa_role FROM stuff_accounts
@@ -14,6 +12,15 @@ function hasRole($dbh, $login, RolesEnum $role)
     $result->execute();
 
     if (!empty($result->fetch())) {
+        return true;
+    }
+
+    return false;
+}
+
+function isLogged()
+{
+    if (isset($_SESSION['auth']) || isset($_SESSION['auth_stuff'])) {
         return true;
     }
 

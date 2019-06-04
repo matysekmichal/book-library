@@ -1,5 +1,7 @@
 <?php
 
+$page = ($_GET['page']) ?? 1;
+
 function pagination($page, $pages)
 {
     if ($pages > 1) {

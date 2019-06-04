@@ -38,12 +38,12 @@ function stuffLogin($dbh, $login, $password)
         'login' => $login,
     ]);
 
-    $fetchedPassword = $result->fetch()['s_password'];
+    $fetchedPassword = $result->fetch()['sa_password'];
 
     if (password_verify($password, $fetchedPassword)) {
         $_SESSION['auth_stuff'] = baseEncrypt($login);
-        flashSuccess('Zalogowano pomyślnie', '#');
+        flashSuccess('Zalogowano pomyślnie', 'stuff');
     } else {
-        flashError('Nie istnieje takie konto.', 'login');
+        flashError('Nie istnieje takie konto.', 'stuff/login');
     }
 }
