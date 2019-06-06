@@ -17,6 +17,7 @@ include 'Crypt.php';
 include 'Dialogs/Taste.php';
 include 'Basket.php';
 include 'Auth/BasicAuth.php';
+include 'ActiveUrl.php';
 
 $body_class = '';
 $footer_scripts = '';

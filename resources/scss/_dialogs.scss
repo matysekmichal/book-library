@@ -1,15 +1,7 @@
 @import "variables";
 
 .active-dialog {
-  * {
-    filter: blur(2px);
-  }
-
-  .dialog {
-    &, * {
-      filter: none !important;
-    }
-  }
+  overflow: hidden;
 }
 
 .dialog {
@@ -36,11 +28,15 @@
     margin: 0;
     padding: 15px;
     background: transparent;
+    opacity: 1;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    animation-name: dialog-animation;
+    animation-duration: 900ms;
+
 
     .content {
       background: $white;
@@ -165,5 +161,24 @@
   .right {
     position: absolute;
     right: 5px;
+  }
+}
+
+@keyframes dialog-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(-50%, calc(-50% - 50px));
+    -moz-transform: translate(-50%, calc(-50% - 50px));
+    -ms-transform: translate(-50%, calc(-50% - 50px));
+    -o-transform: translate(-50%, calc(-50% - 50px));
+    transform: translate(-50%, calc(-50% - 50px));
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }

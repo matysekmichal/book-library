@@ -14,6 +14,7 @@ if (isset($_COOKIE[getNameCookie('basket_show')])) {
 
                 <?php
                 $basket = getItemsInBasket();
+                print_r(array_key_last($basket));
                 $book = fetchBook($dbh, $basket[getNumberItemsInBasket() - 1]->slug);
                 ?>
 
@@ -31,7 +32,7 @@ if (isset($_COOKIE[getNameCookie('basket_show')])) {
                             <div class="description"><?= limit_text($book['b_description'], 30) ?></div>
                         </div>
                         <div class="action">
-                            <a href="/basket?r=<?= baseEncrypt($key) ?>" class="text-center text-danger">
+                            <a href="/basket?r=<?= baseEncrypt($book['b_slug']) ?>" class="text-center text-danger">
                                 <i class="material-icons delete">delete</i>
                             </a>
                         </div>

@@ -96,6 +96,16 @@ nav.navigation-vertical {
             color: $primary;
           }
         }
+
+        &.active {
+          a {
+            color: $primary;
+
+            &:hover {
+
+            }
+          }
+        }
       }
     }
   }
