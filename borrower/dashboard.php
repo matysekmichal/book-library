@@ -2,6 +2,7 @@
 
 include '../app/Init.php';
 include '../app/Borrower.php';
+include '../app/Book.php';
 include '../resources/layout/pagination.php';
 
 $pageTitle = 'Book Library - wypożyczalnia książek';

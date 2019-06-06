@@ -1,5 +1,7 @@
 <?php
 
+include 'Enums/LoanStatusEnum.php';
+
 function fetchBook($dbh, $slug)
 {
     $query = 'SELECT * FROM books b
@@ -139,4 +141,25 @@ function availabilityBook($qt)
     }
 
     return $string;
+}
+
+function renderLoanStatus($status)
+{
+    switch ($status) {
+        case LoanStatusEnum::CANCELED :
+            return '<span class="badge danger">Anulowano</span>';
+            break;
+        case LoanStatusEnum::WAITING :
+            return '<span class="badge warning">Oczekuje</span>';
+            break;
+        case LoanStatusEnum::COMPLETED :
+            return '<span class="badge success">Skompletowano</span>';
+            break;
+        case LoanStatusEnum::LOANED :
+            return '<span class="badge info">Wypożyczono</span>';
+            break;
+        case LoanStatusEnum::RETURNED :
+            return '<span class="badge gray">Zwrócono</span>';
+            break;
+    }
 }

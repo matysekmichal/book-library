@@ -11,8 +11,24 @@
   border-radius: $radius-normal;
   margin-left: 8px;
 
-  &.waiting {
+  &.success {
+    background: $success;
+  }
+
+  &.danger {
+    background: $danger;
+  }
+
+  &.info {
     background: $info;
+  }
+
+  &.warning {
+    background: $warning;
+  }
+
+  &.gray {
+    background: $gray-50;
   }
 }
 

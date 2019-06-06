@@ -21,5 +21,6 @@ include 'ActiveUrl.php';
 
 $body_class = '';
 $footer_scripts = '';
+$page = isset($_POST['page']) ? $_POST['page'] : 1;
 
 $body_class .= (isset($_COOKIE[getNameCookie('basket_show')])) ? 'active-dialog' : '';

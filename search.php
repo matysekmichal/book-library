@@ -7,7 +7,6 @@ include 'app/Search.php';
 
 $pageTitle = 'Szukaj - Book Library';
 $search = ($_GET['q']) ?? header('Location: ' . $_SERVER['HTTP_REFERER']);
-$page = ($_GET['page']) ?? 1;
 
 include 'resources/layout/header/header.php';
 ?>

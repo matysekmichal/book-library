@@ -102,15 +102,6 @@ function currentUser($dbh)
     }
 }
 
-function renderLoanStatus($status)
-{
-    switch ($status) {
-        case 'waiting' :
-            return '<span class="badge '. $status .'">Oczekuje</span>';
-        break;
-    }
-}
-
 function checkProfileComplete($borrower)
 {
     return (empty($borrower['bor_id_document']) && empty($borrower['bor_student_album'])) ? false : true;
