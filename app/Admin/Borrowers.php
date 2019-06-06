@@ -1,9 +1,8 @@
 <?php
 
-function fetchLoansPaginate($dbh, $page = 1, $perPage = 13)
+function fetchBorrowersPaginate($dbh, $page = 1, $perPage = 13)
 {
-    $query = 'SELECT * FROM loan
-            LEFT JOIN borrowers b on loan.l_borrower_id = b.bor_id
+    $query = 'SELECT * FROM borrowers
             LIMIT :start, :end';
 
     $pages = 'SELECT COUNT(*) as pages FROM loan';

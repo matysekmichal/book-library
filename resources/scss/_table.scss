@@ -43,4 +43,31 @@ table {
       border-bottom: 1px solid $gray-20;
     }
   }
+
+  td .action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: $h5;
+      margin: 5px;
+    }
+
+    .edit {
+      color: $primary;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .delete {
+      color: $danger;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 }
