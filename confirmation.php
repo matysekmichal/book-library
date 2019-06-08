@@ -20,7 +20,7 @@ if (empty(getItemsInBasket())) {
     <div class="content">
     <div class="segment">
         <?php
-        if (saveOrder($dbh)) {
+        if (saveLoan($dbh)) {
         ?>
             <h1 class="mt-5 mb-2 text-center text-success text-uppercase">
                 Udało się

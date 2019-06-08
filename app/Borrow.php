@@ -2,7 +2,7 @@
 
 include 'Enums/LoanStatusEnum.php';
 
-function saveOrder($dbh)
+function saveLoan($dbh)
 {
     $dbh->beginTransaction();
 
@@ -33,4 +33,22 @@ function saveOrder($dbh)
     }
 
     return false;
+}
+
+function updateLoanStatus($dbh, $loanId, $status) {
+    $query = "UPDATE loan SET l_status = :stauts WHERE l_id = :id";
+
+    $result = $dbh->prepare($query);
+
+    $result->execute([
+        ':id' => baseDecrypt($loanId),
+        ':stauts' => $status,
+    ]);
+
+    if ($result) {
+        flashSuccess('Twoje wypożyczenie zostało anulowane.');
+        die();
+    }
+
+    flashError('Nie udało się anulować tego wypożyczenia.');
 }

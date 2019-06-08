@@ -53,7 +53,14 @@ $borrower = currentUser($dbh);
                         <a href="/book?b=<?= $borrowedBook['b_slug'] ?>"><?= $borrowedBook['b_name'] ?></a><br>
                     <?php } ?>
                 </td>
-                <td class="text-center"><?= renderLoanStatus($loan['l_status']) ?></td>
+                <td class="text-center">
+                    <?php
+                        echo renderLoanStatus($loan['l_status']);
+                        if ($loan['l_status'] == LoanStatusEnum::WAITING) {
+                            echo '<br><a href="/borrower/loan?r='. baseEncrypt($loan['l_id']) .'" class="h8 text-uppercase text-danger">Anuluj wypożyczenie</a>';
+                        }
+                    ?>
+                </td>
             </tr>
             <?php } ?>
         </table>
