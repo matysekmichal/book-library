@@ -18,7 +18,7 @@ function fetchLoansPaginate($dbh, $page = 1, $perPage = 13)
     $result_pages->execute();
 
     $items = $result_pages->fetch()['pages'];
-    $pages = ceil($result_pages->fetch()['pages'] / $perPage);
+    $pages = ceil($items / $perPage);
 
     return [
         'data' => $result->fetchAll(),

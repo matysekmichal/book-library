@@ -22,13 +22,14 @@ function fetchBook($dbh, $slug)
     return $result->fetch();
 }
 
-function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
+function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12, $orderBy = 'bor_created_at', $inOrder = 'DESC')
 {
     $query = 'SELECT * FROM books b
         LEFT JOIN book_genres bg on b.b_id = bg.bg_book_id
         LEFT JOIN genres g on bg.bg_genre_id = g.g_id';
 
     if ($genre) $query .= ' WHERE g.g_slug = :genre';
+    $query .= ' ORDER BY :order :inOrder';
 
     $query .= ' LIMIT :start, :end';
 
@@ -42,6 +43,8 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
     $result_pages = $dbh->prepare($pages);
 
     if ($genre) $result->bindValue(':genre', $genre, PDO::PARAM_STR);
+    $result->bindValue(':order', $orderBy, PDO::PARAM_STR);
+    $result->bindValue(':inOrder', $inOrder, PDO::PARAM_STR);
     $result->bindValue(':start', ($page - 1) * $perPage, PDO::PARAM_INT);
     $result->bindValue(':end', $perPage, PDO::PARAM_INT);
 
@@ -50,11 +53,14 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12)
     $result->execute();
     $result_pages->execute();
 
+    $items = $result_pages->fetch()['pages'];
+    $pages = ceil($items / $perPage);
+
     return [
         'data' => $result->fetchAll(),
         'page' => $page,
-        'items' => $result_pages->fetch()['pages'],
-        'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
+        'items' => $items,
+        'pages' => $pages,
         'perPage' => $perPage,
     ];
 }
