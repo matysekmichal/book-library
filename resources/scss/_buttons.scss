@@ -56,11 +56,9 @@
   &.btn-secondary {
     color: #ffffff;
     background-color: $secondary;
-    border: 2px solid $secondary;
 
     &:hover {
-      color: $secondary;
-      background-color: #ffffff;
+      background-color: darken($secondary, 5);
     }
 
     &:focus {
@@ -73,7 +71,6 @@
   &.btn-dark {
     color: $gray-10;
     background-color: $basic;
-    border: 0;
 
     &:hover {
       background-color: lighten($basic, 20%);
@@ -89,7 +86,6 @@
   &.btn-gray {
     color: $basic;
     background-color: $gray-30;
-    border: 2px solid $gray-30;
 
     &:hover {
       background-color: $gray-10;

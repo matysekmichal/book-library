@@ -6,6 +6,8 @@ include 'app/Book.php';
 include 'app/Borrow.php';
 include 'app/Borrower.php';
 
+if (!isset($_SESSION['auth'])) goBack();
+
 $pageTitle = 'Potwierdzenie rezerwacji - Book Library';
 $nofollow = true;
 

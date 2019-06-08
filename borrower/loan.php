@@ -2,8 +2,8 @@
 
 include '../app/Init.php';
 include '../app/Borrow.php';
+include '../app/Enums/LoanStatusEnum.php';
 
 if (isset($_GET['r'])) {
-    echo ';';
     updateLoanStatus($dbh, $_GET['r'], LoanStatusEnum::CANCELED);
 }

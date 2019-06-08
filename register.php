@@ -1,6 +1,9 @@
 <?php
 
 include 'app/Init.php';
+
+if (isset($_SESSION['auth'])) goBack();
+
 $pageTitle = 'Book Library - wypożyczalnia książek';
 
 include 'resources/layout/header/header-simplify.php';

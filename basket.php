@@ -51,12 +51,30 @@ include 'resources/layout/header/header.php';
             <?php } ?>
         </div>
 
+        <?php
+        if (isset($_SESSION['auth'])) { ?>
         <div class="text-right mt-2">
-            <a href="confirmation" class="btn btn-sm btn-square btn-secondary dialog-close">
+            <a href="/confirmation" class="btn btn-sm btn-square btn-secondary">
                 Potwierdzam wypożyczenie
                 <i class="material-icons">done</i>
             </a>
         </div>
+        <?php } else { ?>
+            <div class="text-center mt-2">
+                <p class="text-gray-70">
+                    By móc wypożyczyć książki musisz być zalogowany.
+                </p>
+                <a href="/register" class="btn btn-sm btn-square btn-primary">
+                    Rejestracja
+                </a>
+
+                <i class="text-gray-60 mx-2">lub</i>
+
+                <a href="/login" class="btn btn-sm btn-square btn-secondary">
+                    Logowanie
+                </a>
+            </div>
+        <?php } ?>
 
         <?php } else { ?>
             <h1 class="mt-5 mb-2 text-center text-basic text-uppercase">
