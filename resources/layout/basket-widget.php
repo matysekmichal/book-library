@@ -14,7 +14,6 @@ if (isset($_COOKIE[getNameCookie('basket_show')])) {
 
                 <?php
                 $basket = getItemsInBasket();
-                print_r(array_key_last($basket));
                 $book = fetchBook($dbh, $basket[getNumberItemsInBasket() - 1]->slug);
                 ?>
 

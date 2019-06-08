@@ -1,7 +1,5 @@
 <?php
 
-include 'Enums/LoanStatusEnum.php';
-
 function saveLoan($dbh)
 {
     $dbh->beginTransaction();

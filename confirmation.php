@@ -6,7 +6,6 @@ include 'app/Book.php';
 include 'app/Borrow.php';
 include 'app/Borrower.php';
 
-
 $pageTitle = 'Potwierdzenie rezerwacji - Book Library';
 $nofollow = true;
 
