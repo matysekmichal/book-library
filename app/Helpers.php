@@ -63,9 +63,9 @@ function prettyTime($time)
 
 function goBack()
 {
-    echo '<script>
-            window.history.back();
-        </script>';
-
-    die();
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: '. $_SERVER['HTTP_REFERER']);
+    } else {
+        header('Location: '. App::APP_URL);
+    }
 }

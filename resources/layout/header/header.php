@@ -31,25 +31,19 @@
 
 <div class="container page-content-holder">
 <aside>
+    <?php if (isset($_SESSION['auth'])) { ?>
     <h2 class="h5 my-0">Twoj konto</h2>
     <hr class="mt-1">
-    <nav class="navigation-vertical nav-primary">
-        <?php if (empty($_SESSION['auth'])) { ?>
-            <p class="text-center">
-                <a href="/login" class="h7 text-uppercase link-gray">zaloguj się</a>
-                <i class="h8 text-gray-40">&nbsp; lub &nbsp;</i>
-                <a href="/register.php" class="h7 text-uppercase link-gray">zarejestruj</a>
-            </p>
-        <?php } else { ?>
-            <ul>
-                <li><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
-                <li><a href="/basket"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge-counter"><?= getNumberItemsInBasket() ?></span></a></li>
-                <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
-            </ul>
-        <?php }?>
+    <nav class="navigation-vertical nav-primary mb-3">
+        <ul>
+            <li class="<?= isActive('dashboard') ?>"><a href="/borrower/dashboard"><i class="material-icons">person</i> Dane konta</a></li>
+            <li class="<?= isActive('edit') ?>"><a href="/borrower/edit"><i class="material-icons">edit</i> Edytuj profil</a></li>
+            <li><a href="/logout"><i class="material-icons">first_page</i> Wyloguj się</a></li>
+        </ul>
     </nav>
+    <?php }?>
 
-    <h2 class="h5 mt-3 mb-0">Kategorie</h2>
+    <h2 class="h5 my-0">Kategorie</h2>
     <hr class="mt-1">
     <nav class="navigation-vertical">
         <ul>

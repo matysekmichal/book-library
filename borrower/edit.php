@@ -4,6 +4,8 @@ include '../app/Init.php';
 include '../app/Borrower.php';
 include '../resources/layout/pagination.php';
 
+if (!isset($_SESSION['auth'])) goBack();
+
 $pageTitle = 'Book Library - wypożyczalnia książek';
 $page = ($_GET['page']) ?? 1;
 
