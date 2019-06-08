@@ -19,6 +19,7 @@ body {
   margin: 0;
   color: $basic;
   background-color: $gray-10;
+  overflow-y: scroll;
 
   &.body-simplify {
     height: 100vh;

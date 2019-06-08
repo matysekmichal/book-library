@@ -7,5 +7,9 @@ include '../app/Enums/LoanStatusEnum.php';
 if (!isset($_SESSION['auth'])) goBack();
 
 if (isset($_GET['r'])) {
-    updateLoanStatus($dbh, $_GET['r'], LoanStatusEnum::CANCELED);
+    if (cancelBorrow($dbh, $_GET['r'])) {
+        flashSuccess('Twoje wypożyczenie zostało anulowane.');
+    }
+
+    flashError('Nie udało się anulować tego wypożyczenia.');
 }

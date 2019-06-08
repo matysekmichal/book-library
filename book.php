@@ -22,7 +22,7 @@ include 'resources/layout/header/header.php';
                 <?= ($availability = availabilityBook($book['b_quantity'])) ? '<p><span class="text-gray-60">Dostępność:</span> '. $availability .'</p>' : '' ?>
                 <?= ($published = prettyDate($book['b_published'])) ? '<p><span class="text-gray-60">Publikacja:</span> '. $published .'</p>' : '' ?>
 
-                <?php if ($book['b_quantity']) { ?>
+                <?php if ($book['b_available']) { ?>
                     <a href="/basket?b=<?= $book['b_slug'] ?>"class="btn btn-secondary btn-square">Wypożycz</a>
                 <?php } else { ?>
                     <button type="button" class="btn btn-secondary btn-square" disabled>Niedostępna</button>

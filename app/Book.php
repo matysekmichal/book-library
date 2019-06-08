@@ -156,7 +156,7 @@ function renderLoanStatus($status)
             return '<span class="badge danger">Anulowano</span>';
             break;
         case LoanStatusEnum::WAITING :
-            return '<span class="badge info">Oczekuje</span>';
+            return '<span class="badge warning">Oczekuje</span>';
             break;
         case LoanStatusEnum::COMPLETED :
             return '<span class="badge success">Skompletowano</span>';
@@ -168,4 +168,16 @@ function renderLoanStatus($status)
             return '<span class="badge gray">Zwrócono</span>';
             break;
     }
+}
+
+function bookIsAvailable($dbh, $bookId)
+{
+    $query = "SELECT b_available FROM books WHERE b_id = :b_id LIMIT 1";
+    $result = $dbh->prepare($query);
+
+    $result->execute([
+        ':b_id' => $bookId,
+    ]);
+
+    return ($result->fetch()['b_available']) ? true : false;
 }

@@ -211,6 +211,35 @@
       transition: color 300ms;
     }
   }
+
+  .unavailable {
+    position: relative;
+
+    .item {
+      filter: grayscale(100%);
+      opacity: 0.1;
+    }
+
+    .unavailable-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: $h3;
+      font-weight: $font-weight-bold;
+      color: $danger;
+      z-index: 1;
+
+      i {
+        vertical-align: sub;
+        font-size: $h2;
+      }
+    }
+  }
 }
 
 .box {

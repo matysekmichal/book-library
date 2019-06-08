@@ -22,7 +22,11 @@ if (isset($books)) { ?>
                     </div>
 
                     <div class="text-center my-2">
-                        <a href="/basket?b=<?= $book['b_slug'] ?>" class="btn btn-sm btn-square btn-secondary">Wypożycz</a>
+                        <?php if ($book['b_available']) { ?>
+                            <a href="/basket?b=<?= $book['b_slug'] ?>" class="btn btn-sm btn-square btn-secondary">Wypożycz</a>
+                        <?php } else { ?>
+                            <button type="button" class="btn btn-sm btn-secondary btn-square" disabled>Niedostępna</button>
+                        <?php } ?>
                     </div>
                 </div>
             <?php } ?>
