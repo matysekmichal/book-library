@@ -90,4 +90,8 @@ input {
     margin: 3px 10px;
     width: auto;
   }
+
+  label {
+    font-weight: $font-weight-normal;
+  }
 }
