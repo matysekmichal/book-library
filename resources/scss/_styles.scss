@@ -1,19 +1,44 @@
 @import "variables";
 
-.text-primary {
-  color: #0040e0 !important;
-}
-
 .text-white {
-  color: #ffffff;
+  color: $white;
 }
 
 .text-dark {
-  color: #0c0b18;
+  color: $basic;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-success {
+  color: $success;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-danger {
+  color: $danger;
 }
 
 .bg-primary {
-  background-color: #0040e0;
+  background-color: $primary;
+}
+
+.bg-success {
+  background-color: $success;
+}
+.bg-danger {
+  background-color: $danger;
+}
+.bg-info {
+  background-color: $info;
+}
+.bg-warning {
+  background-color: $warning;
 }
 
 .bg-primary-gradient {

@@ -46,7 +46,7 @@ if (isset($_POST['email'])) {
 
             <div class="form-group">
                 <label for="id_document">Numer dowodu osobistego lub paszportu:</label>
-                <input type="text" name="id_document" id="student_album" placeholder="YYY 000000" value="<?= ($borrower['bor_id_account']) ?? '' ?>">
+                <input type="text" name="id_document" id="id_document" placeholder="YYY 000000" value="<?= ($borrower['bor_id_document']) ?? '' ?>">
                 <span class="info">* Opcjonalnie - podać w przypadku nie bycia studentem</span>
             </div>
 

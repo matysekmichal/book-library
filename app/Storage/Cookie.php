@@ -31,6 +31,7 @@ function flashSuccess ($value, $redirect = '')
     setFlashCookie('success', $value);
     if ($redirect) {
         header('Location: '. App::APP_URL . $redirect);
+        die();
     } else {
         goBack();
     }
@@ -41,6 +42,7 @@ function flashError ($value, $redirect = '')
     setFlashCookie('error', $value);
     if ($redirect) {
         header('Location: '. App::APP_URL . $redirect);
+        die();
     } else {
         goBack();
     }
@@ -51,6 +53,7 @@ function flashInfo ($value, $redirect = '')
     setFlashCookie('info', $value);
     if ($redirect) {
         header('Location: '. App::APP_URL . $redirect);
+        die();
     } else {
         goBack();
     }
@@ -61,6 +64,7 @@ function flashWarning ($value, $redirect = '')
     setFlashCookie('warning', $value);
     if ($redirect) {
         header('Location: '. App::APP_URL . $redirect);
+        die();
     } else {
         goBack();
     }

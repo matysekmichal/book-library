@@ -68,4 +68,6 @@ function goBack()
     } else {
         header('Location: '. App::APP_URL);
     }
+
+    die();
 }

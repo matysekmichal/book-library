@@ -66,6 +66,51 @@
     }
   }
 
+  // Button danger
+
+  &.btn-danger {
+    color: #ffffff;
+    background-color: $danger;
+
+    &:hover {
+      background-color: darken($danger, 5);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem transparentize($danger, 0.5);
+    }
+  }
+
+  // Button warning
+
+  &.btn-warning {
+    color: #ffffff;
+    background-color: $warning;
+
+    &:hover {
+      background-color: darken($warning, 5);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem transparentize($warning, 0.5);
+    }
+  }
+
+  // Button light
+
+  &.btn-light {
+    color: $basic;
+    background-color: $white;
+
+    &:hover {
+      background-color: lighten($white, 20%);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem transparentize($white, 0.5);
+    }
+  }
+
   // Button dark
 
   &.btn-dark {

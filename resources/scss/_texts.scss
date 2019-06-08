@@ -53,6 +53,54 @@ a.text-decoration {
   text-decoration: underline;
 }
 
+a.link-primary {
+  color: $primary;
+
+  &:hover {
+    color: darken($primary, 20);
+  }
+}
+
+a.link-secondary {
+  color: $secondary;
+
+  &:hover {
+    color: darken($secondary, 20);
+  }
+}
+
+a.link-success {
+  color: $success;
+
+  &:hover {
+    color: darken($success, 20);
+  }
+}
+
+a.link-danger {
+  color: $danger;
+
+  &:hover {
+    color: darken($danger, 20);
+  }
+}
+
+a.link-info {
+  color: $info;
+
+  &:hover {
+    color: darken($info, 20);
+  }
+}
+
+a.link-warning {
+  color: $warning;
+
+  &:hover {
+    color: darken($warning, 20);
+  }
+}
+
 hr {
   border: 0;
   border-top: 1px solid $gray-30;
@@ -103,20 +151,6 @@ span i {
 
 .font-weight-bolder {
   font-weight: $font-weight-bolder;
-}
-
-// Colors
-
-.text-success {
-  color: $success;
-}
-
-.text-warning {
-  color: $warning;
-}
-
-.text-danger {
-  color: $danger;
 }
 
 // List

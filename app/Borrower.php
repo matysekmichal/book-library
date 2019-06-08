@@ -9,7 +9,8 @@ function updateProfile($dbh, $borrower_id)
     $studentAlbum = $_POST['student_album'];
     $idDocument = $_POST['id_document'];
 
-    $query = 'UPDATE borrowers SET bor_email = :email,
+    $query = 'UPDATE borrowers SET
+        bor_email = :email,
         bor_firstname = :firstname,
         bor_lastname = :lastname,
         bor_student_album = :student_album,
@@ -26,16 +27,50 @@ function updateProfile($dbh, $borrower_id)
             'id_document' => $idDocument,
             'borrower_id' => $borrower_id
         ]);
+
+        flashSuccess('Zaktualizowano konto');
     } catch (Exception $e) {
-        echo $e;
-        die();
         flashError('Przepraszamy. Nie mogliśmy zaktualizować twojego konta.');
-        die();
+    }
+}
+
+function updatePassword($dbh, $borrower_id)
+{
+    $prevPassword = $_POST['prev_password'];
+    $newPassword = $_POST['new_password'];
+    $newRepeatPassword = $_POST['new_repeat_password'];
+
+    $query = 'SELECT bor_id FROM borrowers
+        WHERE bor_id = :borrower_id AND bor_password = :pass
+        LIMIT 1';
+    $result = $dbh->prepare($query);
+
+    $result->execute([
+        'borrower_id' => $borrower_id,
+        'pass' => $prevPassword
+    ]);
+
+    if (count($result->fetchAll()) > 0) {
+        flashError('Nieprawidłowe hasło.');
+    }
+    if ($newPassword !== $newRepeatPassword) {
+        flashError('Hasła nie są identyczne.');
     }
 
-    if ($result) {
-        $_SESSION['auth'] = baseEncrypt($email);
-        flashSuccess('Zaktualizowano konto');
+    $query = 'UPDATE borrowers SET
+        bor_password = :new_password
+        WHERE bor_id = :borrower_id';
+    $result = $dbh->prepare($query);
+
+    try {
+        $result->execute([
+            'new_password' => password_hash($newPassword, PASSWORD_ARGON2I),
+            'borrower_id' => $borrower_id
+        ]);
+
+        flashSuccess('Hasło zostało zmienione.');
+    } catch (Exception $e) {
+        flashError('Przepraszamy. Nie mogliśmy zaktualizować twojego konta.');
     }
 }
 

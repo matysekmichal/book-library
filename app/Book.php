@@ -156,7 +156,7 @@ function renderLoanStatus($status)
             return '<span class="badge danger">Anulowano</span>';
             break;
         case LoanStatusEnum::WAITING :
-            return '<span class="badge warning">Oczekuje</span>';
+            return '<span class="badge info">Oczekuje</span>';
             break;
         case LoanStatusEnum::COMPLETED :
             return '<span class="badge success">Skompletowano</span>';
