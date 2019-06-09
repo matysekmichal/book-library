@@ -1,6 +1,9 @@
 <?php
 
 include '../app/Init.php';
+
+if (!isset($_SESSION['auth_stuff'])) goBack();
+
 include '../app/Admin/Books.php';
 include '../app/Book.php';
 include '../resources/layout/pagination.php';

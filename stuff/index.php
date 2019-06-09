@@ -1,6 +1,9 @@
 <?php
 
 include '../app/Init.php';
+
+if (!isset($_SESSION['auth_stuff'])) goBack();
+
 include '../resources/layout/pagination.php';
 
 $pageTitle = 'Administracja - Book Library';
