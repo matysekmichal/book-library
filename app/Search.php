@@ -7,13 +7,13 @@ function search($dbh, $string, $page = 1, $perPage = 12)
     $query = 'SELECT * FROM books b
         LEFT JOIN book_authors ba on b.b_id = ba.ba_book_id
             LEFT JOIN authors a on ba.ba_author_id = a.a_id
-        WHERE b.b_name LIKE :string || CONCAT(a.a_firstname, " ", a.a_lastname) LIKE :string
+        WHERE b.b_name LIKE :string || CONCAT(a.a_firstname, \' \', a.a_lastname) LIKE :string
         LIMIT :start, :end';
 
     $pages = 'SELECT count(*) as pages FROM books b
         LEFT JOIN book_authors ba on b.b_id = ba.ba_book_id
             LEFT JOIN authors a on ba.ba_author_id = a.a_id
-        WHERE LOWER(b.b_name) LIKE :string || CONCAT(a.a_firstname, " ", a.a_lastname) LIKE :string';
+        WHERE LOWER(b.b_name) LIKE :string || CONCAT(a.a_firstname, \' \', a.a_lastname) LIKE :string';
 
     $result = $dbh->prepare($query);
     $result_pages = $dbh->prepare($pages);
@@ -29,6 +29,10 @@ function search($dbh, $string, $page = 1, $perPage = 12)
 
     $result = $result->fetchAll();
     $result_pages = $result_pages->fetch();
+
+//    echo '<pre>';
+//    print_r($result);
+//    die();
 
     return [
         'data' => $result,
