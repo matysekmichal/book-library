@@ -23,8 +23,9 @@ include 'resources/layout/header/header-simplify.php';
         </div>
 
         <div class="form-group from-checkbox">
-            <input type="checkbox" id="terms" name="terms">
-            <label for="terms" class="h7 text-gray-90">Zgadzam się na warunki zawarte w <a href="/rules" class="font-weight-bold">regulaminie</a>.</label>
+            <input type="hidden" name="terms" value="0">
+            <input type="checkbox" id="terms" name="terms" value="1" required>
+            <label for="terms" class="h7 text-gray-90">Zgadzam się na warunki zawarte w <a href="/rules" class="font-weight-bold">regulaminie</a>.<span class="text-danger">*</span></label>
         </div>
 
         <div class="form-group text-center">
