@@ -15,7 +15,7 @@ if (isset($books)) { ?>
                         <a href="/book?b=<?= $book['b_slug'] ?>">
                             <div class="title"><?= $book['b_name'] ?></div>
                         </a>
-                        <div class="author"><?= getBookAuthors($dbh, $book) ?></div>
+                        <div class="author"><?= getBookAuthors($dbh, $book)['rendered'] ?></div>
                         <div class="description"><?= limit_text($book['b_description'], 30) ?></div>
                     </div>
 

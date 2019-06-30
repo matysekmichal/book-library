@@ -133,7 +133,10 @@ function getBookAuthors($dbh, $book)
         $i++;
     }
 
-    return $authorsText;
+    return [
+        'data' => $authors,
+        'rendered' => $authorsText
+    ];
 }
 
 function availabilityBook($qt)

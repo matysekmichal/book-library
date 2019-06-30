@@ -17,7 +17,7 @@ include 'resources/layout/header/header.php';
             <div class="content">
                 <h1 class="h3"><?= $book['b_name'] ?></h1>
                 <hr>
-                <?= ($author = getBookAuthors($dbh, $book)) ? '<p><span class="text-gray-60">Autor:</span> '. $author .'</p>' : '' ?>
+                <?= ($author = getBookAuthors($dbh, $book)['rendered']) ? '<p><span class="text-gray-60">Autor:</span> '. $author .'</p>' : '' ?>
                 <?= ($pages = $book['b_pages']) ? '<p><span class="text-gray-60">Strony:</span> '. $book['b_pages'] .'</p>' : '' ?>
                 <?= ($availability = availabilityBook($book['b_quantity'])) ? '<p><span class="text-gray-60">Dostępność:</span> '. $availability .'</p>' : '' ?>
                 <?= ($published = prettyDate($book['b_published'])) ? '<p><span class="text-gray-60">Publikacja:</span> '. $published .'</p>' : '' ?>
