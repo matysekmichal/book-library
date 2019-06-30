@@ -35,14 +35,14 @@ include 'resources/layout/basket-widget.php';
             <hr>
             <ul>
                 <li class="<?= isActive('books') ?>"><a href="/stuff/books"><i class="material-icons">book</i> Książki</a></li>
-                <li class="<?= isActive('categories') ?>"><a href="/stuff/categories"><i class="material-icons">category</i> Kategorie</a></li>
-                <li class="<?= isActive('authors') ?>"><a href="/stuff/authors"><i class="material-icons">edit</i> Autorzy</a></li>
+                <li class="<?= isActive('categories') ?>"><a href="/stuff/todo"><i class="material-icons">category</i> Kategorie</a></li>
+                <li class="<?= isActive('authors') ?>"><a href="/stuff/todo"><i class="material-icons">edit</i> Autorzy</a></li>
             </ul>
             <h2 class="h5">Zarządzanie</h2>
             <hr>
             <ul>
-                <li class="<?= isActive('accounts') ?>"><a href="/stuff/accounts"><i class="material-icons">supervised_user_circle</i> Konta</a></li>
-                <li class="<?= isActive('settings') ?>"><a href="/stuff/settings"><i class="material-icons">settings</i> Ustawienia</a></li>
+                <li class="<?= isActive('accounts') ?>"><a href="/stuff/todo"><i class="material-icons">supervised_user_circle</i> Konta</a></li>
+                <li class="<?= isActive('settings') ?>"><a href="/stuff/todo"><i class="material-icons">settings</i> Ustawienia</a></li>
             </ul>
             <hr>
             <ul>

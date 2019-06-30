@@ -14,12 +14,7 @@ include '../resources/layout/header/header-stuff.php';
     <div class="content">
 
     <div class="segment">
-        <h2 class="mt-0">Witaj!</h2>
-
-        <div class="message-bar bg-danger">
-            <i class="material-icons">build</i>
-            <p>Panel administracyjny jest w dużej mierze nieukończony.</p>
-        </div>
+        <h2 class="mt text-center">Sekcja nie jest ukończona :-)</h2>
     </div>
 
 <?php
