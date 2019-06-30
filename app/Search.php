@@ -27,10 +27,14 @@ function search($dbh, $string, $page = 1, $perPage = 12)
     $result->execute();
     $result_pages->execute();
 
+    $result = $result->fetchAll();
+    $result_pages = $result_pages->fetch();
+
     return [
-        'data' => $result->fetchAll(),
+        'data' => $result,
+        'items' => count($result),
         'page' => $page,
-        'pages' => ceil($result_pages->fetch()['pages'] / $perPage),
+        'pages' => ceil($result_pages['pages'] / $perPage),
         'perPage' => $perPage,
     ];
 }

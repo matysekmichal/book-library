@@ -83,6 +83,18 @@ aside {
 
 }
 
+.segment {
+  .segment-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
 // Finder
 
 .finder {
