@@ -31,12 +31,12 @@ if (isset($_POST['new_password'])) {
 
             <div class="form-group">
                 <label for="new_password">Nowe hasło:</label>
-                <input type="password" name="new_password" id="new_password" placeholder="Nowe hasło" required>
+                <input type="password" name="new_password" id="new_password" placeholder="Nowe hasło" required autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="new_repeat_password">Powtórz nowe hasło:</label>
-                <input type="password" name="new_repeat_password" id="new_repeat_password" placeholder="Nowe hasło" required>
+                <input type="password" name="new_repeat_password" id="new_repeat_password" placeholder="Nowe hasło" required autocomplete="off">
             </div>
 
             <div class="form-group text-right">

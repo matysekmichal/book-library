@@ -26,27 +26,27 @@ if (isset($_POST['email'])) {
         <form action="" method="post">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" name="email" id="email" placeholder="Email" value="<?= ($borrower['bor_email']) ?? '' ?>" required>
+                <input type="text" name="email" id="email" placeholder="Email" value="<?= ($borrower['bor_email']) ?? '' ?>" required autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="firstname">Imię:</label>
-                <input type="text" name="firstname" id="firstname" placeholder="Twoje imię" value="<?= ($borrower['bor_firstname']) ?? '' ?>">
+                <input type="text" name="firstname" id="firstname" placeholder="Twoje imię" value="<?= ($borrower['bor_firstname']) ?? '' ?>" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="lastname">Nazwisko:</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Twoje naziwsko" value="<?= ($borrower['bor_lastname']) ?? '' ?>">
+                <input type="text" name="lastname" id="lastname" placeholder="Twoje naziwsko" value="<?= ($borrower['bor_lastname']) ?? '' ?>" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="student_album">Numer albumu:</label>
-                <input type="text" name="student_album" id="student_album" placeholder="000000" value="<?= ($borrower['bor_student_album']) ?? '' ?>">
+                <input type="text" name="student_album" id="student_album" placeholder="000000" value="<?= ($borrower['bor_student_album']) ?? '' ?>" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label for="id_document">Numer dowodu osobistego lub paszportu:</label>
-                <input type="text" name="id_document" id="id_document" placeholder="YYY 000000" value="<?= ($borrower['bor_id_document']) ?? '' ?>">
+                <input type="text" name="id_document" id="id_document" placeholder="YYY 000000" value="<?= ($borrower['bor_id_document']) ?? '' ?>" autocomplete="off">
                 <span class="info">* Opcjonalnie - podać w przypadku nie bycia studentem</span>
             </div>
 
