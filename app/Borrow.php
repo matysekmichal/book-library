@@ -1,5 +1,15 @@
 <?php
+/**
+ * Funkcjonalność wypożyczenia
+ **/
 
+
+/**
+ * Zapisanie wypożyczenia na podstawie ciaseczka z koszykiem
+ *
+ * @param $dbh
+ * @return bool
+ */
 function saveLoan($dbh)
 {
     $dbh->beginTransaction();
@@ -40,7 +50,15 @@ function saveLoan($dbh)
     return false;
 }
 
-function cancelBorrow($dbh, $loanId) {
+/**
+ * Anulowanie oczekującego zamówienia
+ *
+ * @param $dbh
+ * @param $loanId
+ * @return bool
+ */
+function cancelBorrow($dbh, $loanId)
+{
     $loan = baseDecrypt($loanId);
 
     $dbh->beginTransaction();

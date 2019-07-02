@@ -1,10 +1,16 @@
 <?php
+/**
+ * Widok spisu pulpitu dla konta czytelnika
+ **/
 
 include '../app/Init.php';
 include '../app/Borrower.php';
 include '../app/Book.php';
 include '../resources/layout/pagination.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (!isset($_SESSION['auth'])) goBack();
 
 $pageTitle = 'Book Library - wypożyczalnia książek';

@@ -1,7 +1,13 @@
 <?php
+/**
+ * Formularz logowania dla zespołu administracyjnego
+ **/
 
 include '../app/Init.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (isset($_SESSION['auth_stuff'])) goBack();
 
 $pageTitle = 'Book Library - wypożyczalnia książek';

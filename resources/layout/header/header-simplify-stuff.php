@@ -1,5 +1,9 @@
 <?php
-    include 'head.php';
+/**
+ * Uproszczony widok nagłówka dla zespołu
+ **/
+
+include 'head.php';
 ?>
 <body class="body-simplify bg-primary-gradient <?= $body_class ?>">
 

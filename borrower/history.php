@@ -1,10 +1,16 @@
 <?php
+/**
+ * Widok spisu wypożyczeń użytkownika
+ **/
 
 include '../app/Init.php';
 include '../app/Borrower.php';
 include '../app/Book.php';
 include '../resources/layout/pagination.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (!isset($_SESSION['auth'])) goBack();
 
 $pageTitle = 'Historia - Book Library';
@@ -53,6 +59,7 @@ $borrower = currentUser($dbh);
             <?php } ?>
         </table>
 
+        <!-- Inicjacja paginacji -->
         <?= pagination($loans['page'], $loans['pages']) ?>
 
     </div>

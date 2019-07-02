@@ -1,7 +1,17 @@
 <?php
+/**
+ * Zarządzanie modelem ksiązki
+ **/
 
 include 'Enums/LoanStatusEnum.php';
 
+/**
+ * Pobranie specyficznej publikacji
+ *
+ * @param $dbh
+ * @param $slug
+ * @return mixed
+ */
 function fetchBook($dbh, $slug)
 {
     $query = 'SELECT * FROM books b
@@ -22,6 +32,17 @@ function fetchBook($dbh, $slug)
     return $result->fetch();
 }
 
+/**
+ * Pobranie listy książek
+ *
+ * @param $dbh
+ * @param string $genre
+ * @param int $page
+ * @param int $perPage
+ * @param string $orderBy
+ * @param string $inOrder
+ * @return array
+ */
 function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12, $orderBy = 'bor_created_at', $inOrder = 'DESC')
 {
     $query = 'SELECT * FROM books b
@@ -65,6 +86,13 @@ function fetchBooksPaginate($dbh, $genre = '', $page = 1, $perPage = 12, $orderB
     ];
 }
 
+/**
+ * Pobranie listy najczęściej czytanych książek
+ *
+ * @param $dbh
+ * @param $limit
+ * @return mixed
+ */
 function getMostReadBooks($dbh, $limit)
 {
     $query = 'SELECT *, COUNT(bbo.bbo_book_id) as most_read FROM books b
@@ -81,6 +109,13 @@ function getMostReadBooks($dbh, $limit)
     return $result->fetchAll();
 }
 
+/**
+ * Pobranie listy najnowszych książek
+ *
+ * @param $dbh
+ * @param $limit
+ * @return mixed
+ */
 function getLatestBooks($dbh, $limit)
 {
     $query = 'SELECT * FROM books b
@@ -95,6 +130,14 @@ function getLatestBooks($dbh, $limit)
     return $result->fetchAll();
 }
 
+/**
+ * Fabryka książek według tematu
+ *
+ * @param $dbh
+ * @param string $topic
+ * @param int $limit
+ * @return mixed
+ */
 function fetchBooksFactory($dbh, $topic = '', $limit = 3)
 {
     switch ($topic) {
@@ -107,6 +150,14 @@ function fetchBooksFactory($dbh, $topic = '', $limit = 3)
     }
 }
 
+
+/**
+ * Pobranie autorów książki
+ *
+ * @param $dbh
+ * @param $book
+ * @return array
+ */
 function getBookAuthors($dbh, $book)
 {
     $bookId = $book['b_id'];
@@ -139,6 +190,13 @@ function getBookAuthors($dbh, $book)
     ];
 }
 
+
+/**
+ * Przedstawienie ilości dostępnych książek
+ *
+ * @param $qt
+ * @return string
+ */
 function availabilityBook($qt)
 {
     if ($qt > 2) {
@@ -152,6 +210,12 @@ function availabilityBook($qt)
     return $string;
 }
 
+/**
+ * Przedstawienie statusu zamówienia
+ *
+ * @param $status
+ * @return string
+ */
 function renderLoanStatus($status)
 {
     switch ($status) {
@@ -171,8 +235,17 @@ function renderLoanStatus($status)
             return '<span class="badge gray">Zwrócono</span>';
             break;
     }
+
+    return '';
 }
 
+/**
+ * Sprawdzenie czy ksiązka jest dostępna
+ *
+ * @param $dbh
+ * @param $bookId
+ * @return bool
+ */
 function bookIsAvailable($dbh, $bookId)
 {
     $query = "SELECT b_available FROM books WHERE b_id = :b_id LIMIT 1";

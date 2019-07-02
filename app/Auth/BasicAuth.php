@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Sprawdzanie roli użytkownika
+ *
+ * @param $dbh
+ * @param $login
+ * @param RolesEnum $role
+ * @return bool
+ */
 function hasRole($dbh, $login, RolesEnum $role)
 {
     $query = 'SELECT sa_role FROM stuff_accounts

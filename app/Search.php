@@ -1,8 +1,15 @@
 <?php
-
+/**
+ * Funkcjonalność przeszukiwania wg. aktorów i publikacji
+ * @param $dbh
+ * @param $string
+ * @param int $page
+ * @param int $perPage
+ * @return array
+ */
 function search($dbh, $string, $page = 1, $perPage = 12)
 {
-    $string = '%'. $string .'%';
+    $string = '%' . $string . '%';
 
     $query = 'SELECT * FROM books b
         LEFT JOIN book_authors ba on b.b_id = ba.ba_book_id
@@ -29,10 +36,6 @@ function search($dbh, $string, $page = 1, $perPage = 12)
 
     $result = $result->fetchAll();
     $result_pages = $result_pages->fetch();
-
-//    echo '<pre>';
-//    print_r($result);
-//    die();
 
     return [
         'data' => $result,

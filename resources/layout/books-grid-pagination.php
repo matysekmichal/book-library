@@ -10,7 +10,8 @@ if (isset($books)) { ?>
                 <div class="item">
                     <div class="cover">
                         <a href="/book?b=<?= $book['b_slug'] ?>">
-                            <img src="<?= App::APP_URL . '/storage/covers/' . $book['b_image']; ?>" alt="okładka książki <?= strtolower($book['b_name']) ?>">
+                            <img src="<?= App::APP_URL . '/storage/covers/' . $book['b_image']; ?>"
+                                 alt="okładka książki <?= strtolower($book['b_name']) ?>">
                         </a>
                     </div>
                     <div class="content">
@@ -25,7 +26,8 @@ if (isset($books)) { ?>
                         <?php if ($book['b_available']) { ?>
                             <a href="/basket?b=<?= $book['b_slug'] ?>" class="btn btn-sm btn-square btn-secondary">Wypożycz</a>
                         <?php } else { ?>
-                            <button type="button" class="btn btn-sm btn-secondary btn-square" disabled>Niedostępna</button>
+                            <button type="button" class="btn btn-sm btn-secondary btn-square" disabled>Niedostępna
+                            </button>
                         <?php } ?>
                     </div>
                 </div>

@@ -1,9 +1,15 @@
 <?php
+/**
+ * Widok edycji profilu czytelnika
+ **/
 
 include '../app/Init.php';
 include '../app/Borrower.php';
 include '../resources/layout/pagination.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (!isset($_SESSION['auth'])) goBack();
 
 $pageTitle = 'Book Library - wypożyczalnia książek';
@@ -16,7 +22,6 @@ $borrower = currentUser($dbh);
 if (isset($_POST['email'])) {
     updateProfile($dbh, $borrower['bor_id']);
 }
-
 ?>
     <div class="content">
 

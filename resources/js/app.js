@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    /**
+     * Ukrycie komunikatów po upłynięciu czasu
+     **/
     let removeTaste = window.setTimeout(function () {
         let taste = document.getElementById("taste");
 
@@ -10,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 400);
         }
     }, 6000);
+
+    /**
+     * Zamknięcie ukienka z komunikatem o dodaniu ksiązki do koszyka
+     **/
 
     let dialogClose = document.getElementsByClassName('dialog-close');
 

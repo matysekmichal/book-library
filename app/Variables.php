@@ -8,7 +8,7 @@ class App
     const APP_DEBUG = true;
 
     // Database
-    const DB_HOST = '172.31.0.1';
+    const DB_HOST = 'mariadb';
     const DB_USER = 'book_library_user';
     const DB_NAME = 'book_library';
     const DB_PASSWORD = 'secret';

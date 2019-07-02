@@ -1,4 +1,7 @@
 <?php
+/**
+ * Widok nagłówka dla czytelnika
+ **/
 include 'head.php';
 ?>
 <body class="<?= $body_class ?>">

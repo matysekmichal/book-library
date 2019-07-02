@@ -1,4 +1,7 @@
 <?php
+/**
+ * Widok nagłówka dla zespołu
+ **/
 include 'head.php';
 ?>
 <body class="<?= $body_class ?>">
@@ -28,21 +31,26 @@ include 'resources/layout/basket-widget.php';
         <hr class="mt-1">
         <nav class="navigation-vertical nav-primary">
             <ul>
-                <li class="<?= isActive('loans') ?>"><a href="/stuff/loans"><i class="material-icons">library_books</i> Wypożyczenia</a></li>
-                <li class="<?= isActive('borrowers') ?>"><a href="/stuff/borrowers"><i class="material-icons">person</i> Wypożyczający</a></li>
+                <li class="<?= isActive('loans') ?>"><a href="/stuff/loans"><i class="material-icons">library_books</i>
+                        Wypożyczenia</a></li>
+                <li class="<?= isActive('borrowers') ?>"><a href="/stuff/borrowers"><i class="material-icons">person</i>
+                        Wypożyczający</a></li>
             </ul>
             <h2 class="h5">Biblioteka</h2>
             <hr>
             <ul>
                 <li class="<?= isActive('books') ?>"><a href="/stuff/books"><i class="material-icons">book</i> Książki</a></li>
                 <li class="<?= isActive('categories') ?>"><a href="/stuff/todo"><i class="material-icons">category</i> Kategorie</a></li>
-                <li class="<?= isActive('authors') ?>"><a href="/stuff/todo"><i class="material-icons">edit</i> Autorzy</a></li>
+                <li class="<?= isActive('authors') ?>"><a href="/stuff/todo"><i class="material-icons">edit</i> Autorzy</a>
+                </li>
             </ul>
             <h2 class="h5">Zarządzanie</h2>
             <hr>
             <ul>
-                <li class="<?= isActive('accounts') ?>"><a href="/stuff/todo"><i class="material-icons">supervised_user_circle</i> Konta</a></li>
-                <li class="<?= isActive('settings') ?>"><a href="/stuff/todo"><i class="material-icons">settings</i> Ustawienia</a></li>
+                <li class="<?= isActive('accounts') ?>"><a href="/stuff/todo"><i class="material-icons">supervised_user_circle</i>
+                        Konta</a></li>
+                <li class="<?= isActive('settings') ?>"><a href="/stuff/todo"><i class="material-icons">settings</i>
+                        Ustawienia</a></li>
             </ul>
             <hr>
             <ul>

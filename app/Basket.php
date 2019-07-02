@@ -1,5 +1,14 @@
 <?php
+/**
+ * Funkcjonalność zarządzania koszykiem
+ **/
 
+/**
+ * Dodanie poblikacji do koszyka
+ *
+ * @param $dbh
+ * @param $item
+ */
 function addToBasket($dbh, $item)
 {
     $basket = getItemsInBasket();
@@ -27,16 +36,24 @@ function addToBasket($dbh, $item)
     setFlashCookie('basket_show', '1');
 }
 
+/**
+ * Usunięcie publikacji z koszyka
+ *
+ * @param $item
+ */
 function removeFromBasket($item)
 {
     $basket = getItemsInBasket();
 
     $item = baseDecrypt($item);
-    array_splice($basket, (int) $item, 1);
+    array_splice($basket, (int)$item, 1);
 
     setPermanentCookie('basket', baseEncrypt(json_encode(($basket))));
 }
 
+/**
+ * Wzięcie listy poblikacji z koszyka
+ **/
 function getItemsInBasket()
 {
     if (!isset($_COOKIE[getNameCookie('basket')])) {
@@ -46,6 +63,9 @@ function getItemsInBasket()
     return json_decode(baseDecrypt($_COOKIE[getNameCookie('basket')]));
 }
 
+/**
+ * Pobranie liczby poblikacji z koszyka
+ **/
 function getNumberItemsInBasket()
 {
     return count(getItemsInBasket());

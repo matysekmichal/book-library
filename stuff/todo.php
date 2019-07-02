@@ -1,7 +1,13 @@
 <?php
+/**
+ * Widok dla niukończonych funkcjonalności
+ **/
 
 include '../app/Init.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (!isset($_SESSION['auth_stuff'])) goBack();
 
 include '../resources/layout/pagination.php';

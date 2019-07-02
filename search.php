@@ -1,4 +1,7 @@
 <?php
+/**
+ * Przedstawienie wyników wyszukiwania
+ **/
 
 include 'app/Init.php';
 include 'app/Genres.php';
@@ -19,12 +22,12 @@ if (strlen($search) < 3) {
 $books = search($dbh, $search);
 
 include 'resources/layout/header/header.php';
+include 'resources/layout/search-form.php';
 ?>
-    <?php include 'resources/layout/search-form.php' ?>
     <div class="content">
     <div class="segment">
         <div class="segment-row">
-            <h2 class="my-0">Wynik wyszukiwania</h2>
+            <h2 class="my-0">Wynik wyszukiwania dla <i>"<?= $search ?>"</i></h2>
             <p>
                 Znaleziono: <?= $books['items'] ?>
             </p>
@@ -32,16 +35,13 @@ include 'resources/layout/header/header.php';
         <hr>
     </div>
 
-    <?php
-
-    if ($books['items'] == 0) { ?>
-        <h1 class="h3 mt-5 mb-3 text-center text-basic text-uppercase">
-            Nie znaleziono szukanej frazy
-        </h1>
-    <?php }
-
-    include 'resources/layout/books-grid-pagination.php';
-?>
-
 <?php
+
+if ($books['items'] == 0) { ?>
+    <h1 class="h3 mt-5 mb-3 text-center text-basic text-uppercase">
+        Nie znaleziono szukanej frazy
+    </h1>
+<?php }
+
+include 'resources/layout/books-grid-pagination.php';
 include 'resources/layout/footer/footer.php';

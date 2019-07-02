@@ -1,5 +1,14 @@
 <?php
+/**
+ * Funkcjonalność czytelnika
+ **/
 
+/**
+ * Aktualizacja profilu użytkownika
+ *
+ * @param $dbh
+ * @param $borrower_id
+ */
 function updateProfile($dbh, $borrower_id)
 {
     // TODO: VALIDATE INPUTS
@@ -34,6 +43,13 @@ function updateProfile($dbh, $borrower_id)
     }
 }
 
+
+/**
+ * Zmiana hasłą użytkownika
+ *
+ * @param $dbh
+ * @param $borrower_id
+ */
 function updatePassword($dbh, $borrower_id)
 {
     $prevPassword = $_POST['prev_password'];
@@ -74,6 +90,15 @@ function updatePassword($dbh, $borrower_id)
     }
 }
 
+/**
+ * Lista wypożyczeń użytkownika
+ *
+ * @param $dbh
+ * @param $borrower
+ * @param int $page
+ * @param int $perPage
+ * @return array
+ */
 function userLoans($dbh, $borrower, $page = 1, $perPage = 6)
 {
     $query = 'SELECT * FROM loan
@@ -106,6 +131,12 @@ function userLoans($dbh, $borrower, $page = 1, $perPage = 6)
     ];
 }
 
+/**
+ * Aktualizacja profilu użytkownika
+ *
+ * @param $dbh
+ * @return mixed
+ */
 function getBorrowedBooks($dbh, $loan)
 {
     $query = 'SELECT * FROM borrowed_books_orders
@@ -137,11 +168,22 @@ function currentUser($dbh)
     }
 }
 
+/**
+ * Sprawdzenie kompletności profilu
+ *
+ * @param $borrower
+ * @return bool
+ */
 function checkProfileComplete($borrower)
 {
     return (empty($borrower['bor_id_document']) && empty($borrower['bor_student_album'])) ? false : true;
 }
 
+/**
+ * Pobranie obecnego adresu email użytkownika
+ *
+ * @return bool
+ */
 function getCurrentUserEmail()
 {
     if (!isset($_SESSION['auth'])) {

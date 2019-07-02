@@ -1,7 +1,13 @@
 <?php
+/**
+ * Funkcjonalność logowania użytkowników i administratorów
+ **/
 
 include '../Init.php';
 
+/**
+ * Sprawdzanie kogo mamy zalogować
+ **/
 if (isset($_POST['email'], $_POST['password'])) {
     borrowerLogin($dbh, $_POST['email'], $_POST['password']);
 }
@@ -10,6 +16,13 @@ if (isset($_POST['login'], $_POST['password'])) {
     stuffLogin($dbh, $_POST['login'], $_POST['password']);
 }
 
+/**
+ * Logowanie czytelnika
+ *
+ * @param $dbh
+ * @param $email
+ * @param $password
+ */
 function borrowerLogin($dbh, $email, $password)
 {
     $query = 'SELECT bor_password FROM borrowers WHERE bor_email = :email LIMIT 1';
@@ -29,6 +42,13 @@ function borrowerLogin($dbh, $email, $password)
     }
 }
 
+/**
+ * Logowanie adminstratora
+ *
+ * @param $dbh
+ * @param $login
+ * @param $password
+ */
 function stuffLogin($dbh, $login, $password)
 {
     $query = 'SELECT sa_password FROM stuff_accounts WHERE sa_login = :login LIMIT 1';

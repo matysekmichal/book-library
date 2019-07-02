@@ -1,7 +1,11 @@
 <?php
+/**
+ * Okienko po dodaniu książki do koszyka
+ **/
+
 if (isset($_COOKIE[getNameCookie('basket_show')])) {
     unsetCookie('basket_show');
-?>
+    ?>
     <div id="dialog" class="dialog">
         <div class="container">
             <div class="content">
@@ -21,7 +25,8 @@ if (isset($_COOKIE[getNameCookie('basket_show')])) {
                     <div class="item">
                         <div class="cover">
                             <a href="/book?b=<?= $book['b_slug'] ?>">
-                                <img src="<?= App::APP_URL . '/storage/covers/' . $book['b_image']; ?>" alt="okładka książki <?= strtolower($book['b_name']) ?>">
+                                <img src="<?= App::APP_URL . '/storage/covers/' . $book['b_image']; ?>"
+                                     alt="okładka książki <?= strtolower($book['b_name']) ?>">
                             </a>
                         </div>
                         <div class="content">

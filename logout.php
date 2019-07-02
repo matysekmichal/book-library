@@ -1,4 +1,7 @@
 <?php
+/**
+ * Wylogowywanie użytkowników i adminstratorów
+ **/
 
 include 'app/Init.php';
 

@@ -1,7 +1,13 @@
 <?php
+/**
+ * Widok spisu wypożyczeń
+ **/
 
 include '../app/Init.php';
 
+/**
+ * Przekierowanie jeżli użytkownik nie jest zarejestrowany
+ **/
 if (!isset($_SESSION['auth_stuff'])) goBack();
 
 include '../app/Admin/Loans.php';

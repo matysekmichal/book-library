@@ -1,10 +1,14 @@
 <?php
-    include 'head.php';
+/**
+ * Podstawowy widok nagłówka
+ **/
+
+include 'head.php';
 ?>
 <body class="<?= $body_class ?>">
 
 <?php
-    include 'resources/layout/basket-widget.php';
+include 'resources/layout/basket-widget.php';
 ?>
 
 <header>
@@ -16,43 +20,44 @@
                 </a>
             </div>
             <div>
-            <a href="/basket" class="basket-link"><i class="material-icons">shopping_basket</i> Koszyk <span class="badge-counter"><?= getNumberItemsInBasket() ?></span></a>
+                <a href="/basket" class="basket-link">
+                    <i class="material-icons">shopping_basket</i> Koszyk
+                    <span class="badge-counter"><?= getNumberItemsInBasket() ?></span>
+                </a>
                 <span class="text-gray-30 mx-1">|</span>
-            <?php if (empty($_SESSION['auth'])) { ?>
-                <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
-                <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
-            <?php } else { ?>
-                <a href="/logout" class="h7 link-gray mr-2">Wyloguj się</a>
-            <?php } ?>
+                <?php if (empty($_SESSION['auth'])) { ?>
+                    <a href="/login" class="h7 link-gray mr-2">Zaloguj się</a>
+                    <a href="/register" class="btn btn-sm btn-primary">Załóż konto</a>
+                <?php } else { ?>
+                    <a href="/logout" class="h7 link-gray mr-2">Wyloguj się</a>
+                <?php } ?>
             </div>
         </div>
     </div>
 </header>
 
 <div class="container page-content-holder">
-<aside>
-    <?php if (isset($_SESSION['auth'])) { ?>
-    <h2 class="h5 my-0">Twoj konto</h2>
-    <hr class="mt-1">
-    <nav class="navigation-vertical nav-primary mb-3">
-        <?php include 'user-menu.php' ?>
-    </nav>
-    <?php }?>
+    <aside>
+        <?php if (isset($_SESSION['auth'])) { ?>
+            <h2 class="h5 my-0">Twoj konto</h2>
+            <hr class="mt-1">
+            <nav class="navigation-vertical nav-primary mb-3">
+                <?php include 'user-menu.php' ?>
+            </nav>
+        <?php } ?>
 
-    <h2 class="h5 my-0">Kategorie</h2>
-    <hr class="mt-1">
-    <nav class="navigation-vertical">
-        <ul>
-            <?php
+        <h2 class="h5 my-0">Kategorie</h2>
+        <hr class="mt-1">
+        <nav class="navigation-vertical">
+            <ul>
+                <?php
                 foreach (genres($dbh) as $key => $genre) {
-                    echo '<li><a href="/genre?g='. $genre['g_slug'] .'">'. $genre['g_name'] .'</a></li>';
+                    echo '<li><a href="/genre?g=' . $genre['g_slug'] . '">' . $genre['g_name'] . '</a></li>';
                 }
-            ?>
-        </ul>
-    </nav>
-</aside>
+                ?>
+            </ul>
+        </nav>
+    </aside>
 
-
-
-<main>
-    <div class="content-holder">
+    <main>
+        <div class="content-holder">

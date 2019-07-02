@@ -1,4 +1,7 @@
 <?php
+/**
+ * Wyświetlenie komunikatu o zapisanej książce oraz zapisanie ksiązki
+ **/
 
 include 'app/Init.php';
 include 'app/Genres.php';
@@ -16,13 +19,12 @@ include 'resources/layout/header/header.php';
 if (empty(getItemsInBasket())) {
     flashWarning('Twój koszyk jest pusty.', '#');
 }
-
 ?>
     <div class="content">
     <div class="segment">
         <?php
         if (saveLoan($dbh)) {
-        ?>
+            ?>
             <h1 class="mt-5 mb-2 text-center text-success text-uppercase">
                 Udało się
             </h1>

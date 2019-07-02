@@ -1,4 +1,9 @@
 <?php
+/**
+ * Dostępne statusy dla wypożyczeń
+ *
+ * @aviliable: anulowano, oczekuje, skompletowano, wypożyczono, zwrócono
+ **/
 
 class LoanStatusEnum
 {

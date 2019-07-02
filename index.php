@@ -1,4 +1,9 @@
 <?php
+/**
+ * Strona główna aplikacji
+ *
+ * @Description: Aplikacji pozwalającej zainteresowanym na rezerwację książek przez internet.
+ **/
 
 include 'app/Init.php';
 include 'app/Genres.php';
@@ -7,8 +12,8 @@ include 'app/Book.php';
 $pageTitle = 'Book Library - wypożyczalnia książek';
 
 include 'resources/layout/header/header.php';
+include 'resources/layout/search-form.php'
 ?>
-    <?php include 'resources/layout/search-form.php' ?>
     <div class="content">
 
     <div class="segment">

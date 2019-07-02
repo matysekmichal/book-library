@@ -1,4 +1,9 @@
 <?php
+/**
+ * Role administratorów aplikacji
+ *
+ * @aviliable: główny administrator, bibliotekarz, analityk
+ **/
 
 class RolesEnum
 {

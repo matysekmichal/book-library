@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Pobieranie listy książek
+ *
+ * @param $dbh
+ * @param int $page
+ * @param int $perPage
+ * @return array
+ */
 function fetchBorrowersPaginate($dbh, $page = 1, $perPage = 13)
 {
     $query = 'SELECT * FROM books

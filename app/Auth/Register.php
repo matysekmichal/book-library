@@ -1,4 +1,7 @@
 <?php
+/**
+ * Funkcjonalność rejestracji użytkowników
+ **/
 
 include '../Init.php';
 
@@ -7,7 +10,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['terms'])) {
     $password = password_hash($_POST['password'], PASSWORD_ARGON2I);
     $terms = $_POST['terms'];
 
-    if (!(bool) $_POST['terms']) {
+    if (!(bool)$_POST['terms']) {
         flashError('Nie zaakceptowano warunków do utworzenie konta.');
     }
 

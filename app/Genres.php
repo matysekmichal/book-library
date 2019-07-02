@@ -1,5 +1,15 @@
 <?php
+/**
+ * Funkcjonalność gatunków publikacji
+ **/
 
+/**
+ * Pobranie danych o gatunku
+ *
+ * @param $dbh
+ * @param $slug
+ * @return mixed
+ */
 function getGenreInfo($dbh, $slug)
 {
     $query = 'SELECT g_name, g_meta_description, g_description  FROM genres WHERE g_slug = :slug';
@@ -12,6 +22,11 @@ function getGenreInfo($dbh, $slug)
     return $result->fetch();
 }
 
+/**
+ * Pobranie wszystkich informacji o gatunku
+ * @param $dbh
+ * @return mixed
+ */
 function genres($dbh)
 {
     $query = 'SELECT * FROM genres';
@@ -21,6 +36,13 @@ function genres($dbh)
     return $result->fetchAll();
 }
 
+/**
+ * Pobranie specyficznego gatunku
+ *
+ * @param $dbh
+ * @param $genre
+ * @return mixed
+ */
 function getGenre($dbh, $genre)
 {
     $query = 'SELECT * FROM genres WHERE g_slug = :genre';
