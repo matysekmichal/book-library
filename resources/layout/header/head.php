@@ -11,5 +11,5 @@
     <meta name="description"
           content="<?= $metaDescription ?? 'Nowoczesna biblioteka dająca możliwość wypożyczania zbiorów przez internet. Wypożyczk książkę w serwisie, a będzie ona zarezerwowana dla Ciebie przez 3 dni.' ?>">
     <link rel="icon" href="<?= App::APP_URL . '/resources/images/favicon.png' ?>" type="image/x-icon">
-    <link rel="stylesheet" href="/resources/styles/master.css">
+    <link rel="stylesheet" href="/resources/styles/master.min.css">
 </head>

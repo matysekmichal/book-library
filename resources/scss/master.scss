@@ -1,8 +1,8 @@
 @import "variables";
+@import "texts";
 @import "reset";
 @import "spacings";
 @import "styles";
-@import "texts";
 @import "nav";
 @import "form";
 @import "buttons";
@@ -11,8 +11,6 @@
 @import "pagination";
 @import "table";
 @import "badge";
-
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700&subset=latin-ext');
 
 body {
   font-family: 'Lato', sans-serif;
