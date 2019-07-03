@@ -940,8 +940,7 @@ input[disabled] {
 }
 
 .books-grid .flex {
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 .books-grid .flex .item {
   width: 33.333%;
@@ -956,17 +955,14 @@ input[disabled] {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 102%;
+  min-width: 100%;
+  min-height: 100%;
+  max-height: 110%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: all 300ms;
-  -moz-transition: all 300ms;
-  -ms-transition: all 300ms;
-  -o-transition: all 300ms;
-  transition: all 300ms;
 }
 .books-grid .flex .item .cover a:before {
   content: "";
@@ -976,7 +972,7 @@ input[disabled] {
   right: 0;
   bottom: 0;
   background: #004eff;
-  opacity: 0.4;
+  opacity: 0;
   z-index: 0;
   -webkit-transition: all 300ms;
   -moz-transition: all 300ms;
@@ -984,15 +980,8 @@ input[disabled] {
   -o-transition: all 300ms;
   transition: all 300ms;
 }
-.books-grid .flex .item .cover a:hover img {
-  filter: grayscale(100%);
-  -webkit-transition: all 300ms;
-  -moz-transition: all 300ms;
-  -ms-transition: all 300ms;
-  -o-transition: all 300ms;
-  transition: all 300ms;
-}
 .books-grid .flex .item .cover a:hover::before {
+  opacity: 0.4;
   z-index: 1;
 }
 .books-grid .flex .item .content {
@@ -1153,6 +1142,7 @@ input[disabled] {
 
 .book-first-section-grid {
   display: flex;
+  flex-flow: row wrap;
 }
 .book-first-section-grid .image {
   width: 30%;
@@ -1168,11 +1158,22 @@ input[disabled] {
 }
 
 @media (max-width: 992px) {
-  .books-grid {
-    display: none;
-  }
   .books-grid .flex .item {
     width: 50%;
+  }
+
+  .book-first-section-grid .image {
+    width: 100%;
+  }
+  .book-first-section-grid .image img {
+    width: auto;
+    height: 322px;
+  }
+  .book-first-section-grid .content {
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media (max-width: 762px) {
@@ -1184,6 +1185,10 @@ input[disabled] {
   }
 
   .books-grid .flex .item {
+    width: 100%;
+  }
+
+  .book-first-section-grid .image {
     width: 100%;
   }
 }
